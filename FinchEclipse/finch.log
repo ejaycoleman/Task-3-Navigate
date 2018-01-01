@@ -163,3 +163,238 @@
 2017-12-31 12:08:26,772 [main] DEBUG: edu.cmu.ri.createlab.terk.properties.BasicPropertyManager: ServantPropertyManager.setReadOnlyProperty(device.count,1)
 2017-12-31 12:08:26,772 [main] DEBUG: edu.cmu.ri.createlab.terk.properties.BasicPropertyManager: ServantPropertyManager.setReadOnlyProperty(::TeRK::led::FullColorLEDService::min-intensity,0)
 2017-12-31 12:08:26,772 [main] DEBUG: edu.cmu.ri.createlab.terk.properties.BasicPropertyManager: ServantPropertyManager.setReadOnlyProperty(::TeRK::led::FullColorLEDService::max-intensity,255)
+2018-01-01 13:17:27,591 [main] DEBUG: edu.cmu.ri.createlab.terk.application.TerkApplication: TerkApplication.TerkApplication()
+2018-01-01 13:17:27,613 [main] INFO : edu.cmu.ri.createlab.terk.application.TerkApplication: TerkApplication.TerkApplication(): System property [terk-application.connection-strategy.class.name] is not defined.  Attempting to use default [edu.cmu.ri.createlab.terk.robot.finch.LocalFinchConnectionStrategy] implementation class instead.
+2018-01-01 13:17:27,625 [main] DEBUG: edu.cmu.ri.createlab.terk.application.TerkApplication: TerkApplication.TerkApplication(): successfully instantiated ConnectionStrategy implementation class [edu.cmu.ri.createlab.terk.robot.finch.LocalFinchConnectionStrategy]
+2018-01-01 13:17:28,687 [main] DEBUG: edu.cmu.ri.createlab.device.connectivity.BaseCreateLabDeviceConnectivityManager: BaseCreateLabDeviceConnectivityManager: scanAndConnectWorkhorseRunnable.run()
+2018-01-01 13:17:28,687 [main] DEBUG: edu.cmu.ri.createlab.device.connectivity.BaseCreateLabDeviceConnectivityManager: BaseCreateLabDeviceConnectivityManager.disconnect()
+2018-01-01 13:17:28,688 [main] DEBUG: edu.cmu.ri.createlab.terk.robot.finch.LocalFinchConnectionStrategy: LocalFinchConnectionStrategy.handleConnectionStateChange(): OLD [Disconnected]  NEW [Disconnected]  port []
+2018-01-01 13:17:28,689 [BaseCreateLabDeviceConnectivityManager.executorService pool-1-thread-1] DEBUG: edu.cmu.ri.createlab.device.connectivity.BaseCreateLabDeviceConnectivityManager: CreateLabDeviceConnectivityManagerImpl$DeviceScanner.run()
+2018-01-01 13:17:28,689 [BaseCreateLabDeviceConnectivityManager.executorService pool-1-thread-1] DEBUG: edu.cmu.ri.createlab.terk.robot.finch.LocalFinchConnectionStrategy: LocalFinchConnectionStrategy.handleConnectionStateChange(): OLD [Disconnected]  NEW [Scanning]  port []
+2018-01-01 13:17:28,693 [BaseCreateLabDeviceConnectivityManager.executorService pool-1-thread-1] DEBUG: edu.cmu.ri.createlab.terk.robot.finch.DefaultFinchController: DefaultFinchController.create(): creating HID device for vendor ID [2354] and product ID [1111]
+2018-01-01 13:17:28,929 [BaseCreateLabDeviceConnectivityManager.executorService pool-1-thread-1] DEBUG: edu.cmu.ri.createlab.terk.robot.finch.DefaultFinchController: DefaultFinchController.create(): attempting connection...
+2018-01-01 13:17:28,929 [BaseCreateLabDeviceConnectivityManager.executorService pool-1-thread-1] DEBUG: edu.cmu.ri.createlab.usb.hid.hidapi.BaseHIDAPIDevice: BaseHIDAPIDevice.readDeviceInfo(): looking for device with vendor id [2354] and product id [1111]
+2018-01-01 13:17:28,934 [BaseCreateLabDeviceConnectivityManager.executorService pool-1-thread-1] DEBUG: edu.cmu.ri.createlab.util.NativeLibraryVersionChooser: NativeLibraryVersionChooser.getLibraryName(): sun.arch.data.model system property = [64]
+2018-01-01 13:17:28,934 [BaseCreateLabDeviceConnectivityManager.executorService pool-1-thread-1] DEBUG: edu.cmu.ri.createlab.util.NativeLibraryVersionChooser: NativeLibraryVersionChooser.getLibraryName(): trying to load library [hidapi64]...
+2018-01-01 13:17:28,942 [BaseCreateLabDeviceConnectivityManager.executorService pool-1-thread-1] DEBUG: edu.cmu.ri.createlab.util.NativeLibraryVersionChooser: NativeLibraryVersionChooser.getLibraryName(): successfully loaded library [hidapi64]
+2018-01-01 13:17:28,942 [BaseCreateLabDeviceConnectivityManager.executorService pool-1-thread-1] DEBUG: edu.cmu.ri.createlab.util.NativeLibraryVersionChooser: NativeLibraryVersionChooser.getLibraryName(): returning [hidapi64]
+2018-01-01 13:17:29,504 [BaseCreateLabDeviceConnectivityManager.executorService pool-1-thread-1] DEBUG: edu.cmu.ri.createlab.usb.hid.hidapi.BaseHIDAPIDevice: BaseHIDAPIDevice.readDeviceInfo(): null HIDDeviceInfo returned from hid_enumerate
+2018-01-01 13:17:29,505 [BaseCreateLabDeviceConnectivityManager.executorService pool-1-thread-1] DEBUG: edu.cmu.ri.createlab.usb.hid.hidapi.BaseHIDAPIDevice: BaseHIDAPIDevice.claimAvailableDevice(): returning the deviceInfo [null]
+2018-01-01 13:17:29,505 [BaseCreateLabDeviceConnectivityManager.executorService pool-1-thread-1] ERROR: edu.cmu.ri.createlab.usb.hid.hidapi.BaseHIDAPIDevice: BaseHIDAPIDevice.connect(): device not found
+2018-01-01 13:17:29,505 [BaseCreateLabDeviceConnectivityManager.executorService pool-1-thread-1] ERROR: edu.cmu.ri.createlab.terk.robot.finch.DefaultFinchController: HIDDeviceNotFoundException while trying to connect to the Finch, returning null
+edu.cmu.ri.createlab.usb.hid.HIDDeviceNotFoundException: Device with vendor ID [2354] and product ID [1111] not found.
+	at edu.cmu.ri.createlab.usb.hid.hidapi.BaseHIDAPIDevice.connect(BaseHIDAPIDevice.java:223)
+	at edu.cmu.ri.createlab.usb.hid.hidapi.BaseHIDAPIDevice.connectExclusively(BaseHIDAPIDevice.java:229)
+	at edu.cmu.ri.createlab.terk.robot.finch.DefaultFinchController.create(DefaultFinchController.java:64)
+	at edu.cmu.ri.createlab.device.connectivity.FinchConnectivityManager.scanForDeviceAndCreateProxy(FinchConnectivityManager.java:14)
+	at edu.cmu.ri.createlab.device.connectivity.BaseCreateLabDeviceConnectivityManager$DeviceScanner.run(BaseCreateLabDeviceConnectivityManager.java:229)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+2018-01-01 13:17:29,508 [BaseCreateLabDeviceConnectivityManager.executorService pool-1-thread-1] DEBUG: edu.cmu.ri.createlab.device.connectivity.BaseCreateLabDeviceConnectivityManager: CreateLabDeviceConnectivityManagerImpl$DeviceScanner.run(): connection failed
+2018-01-01 13:17:29,508 [BaseCreateLabDeviceConnectivityManager.executorService pool-1-thread-1] DEBUG: edu.cmu.ri.createlab.device.connectivity.BaseCreateLabDeviceConnectivityManager: Failed to connect, but we're still in scan mode, so schedule a new scan
+2018-01-01 13:17:30,511 [BaseCreateLabDeviceConnectivityManager.executorService pool-1-thread-1] DEBUG: edu.cmu.ri.createlab.device.connectivity.BaseCreateLabDeviceConnectivityManager: CreateLabDeviceConnectivityManagerImpl$DeviceScanner.run()
+2018-01-01 13:17:30,512 [BaseCreateLabDeviceConnectivityManager.executorService pool-1-thread-1] DEBUG: edu.cmu.ri.createlab.terk.robot.finch.LocalFinchConnectionStrategy: LocalFinchConnectionStrategy.handleConnectionStateChange(): OLD [Scanning]  NEW [Scanning]  port []
+2018-01-01 13:17:30,512 [BaseCreateLabDeviceConnectivityManager.executorService pool-1-thread-1] DEBUG: edu.cmu.ri.createlab.terk.robot.finch.DefaultFinchController: DefaultFinchController.create(): creating HID device for vendor ID [2354] and product ID [1111]
+2018-01-01 13:17:30,512 [BaseCreateLabDeviceConnectivityManager.executorService pool-1-thread-1] DEBUG: edu.cmu.ri.createlab.terk.robot.finch.DefaultFinchController: DefaultFinchController.create(): attempting connection...
+2018-01-01 13:17:30,512 [BaseCreateLabDeviceConnectivityManager.executorService pool-1-thread-1] DEBUG: edu.cmu.ri.createlab.usb.hid.hidapi.BaseHIDAPIDevice: BaseHIDAPIDevice.readDeviceInfo(): looking for device with vendor id [2354] and product id [1111]
+2018-01-01 13:17:30,512 [BaseCreateLabDeviceConnectivityManager.executorService pool-1-thread-1] DEBUG: edu.cmu.ri.createlab.usb.hid.hidapi.BaseHIDAPIDevice: BaseHIDAPIDevice.readDeviceInfo(): null HIDDeviceInfo returned from hid_enumerate
+2018-01-01 13:17:30,512 [BaseCreateLabDeviceConnectivityManager.executorService pool-1-thread-1] DEBUG: edu.cmu.ri.createlab.usb.hid.hidapi.BaseHIDAPIDevice: BaseHIDAPIDevice.claimAvailableDevice(): returning the deviceInfo [null]
+2018-01-01 13:17:30,512 [BaseCreateLabDeviceConnectivityManager.executorService pool-1-thread-1] ERROR: edu.cmu.ri.createlab.usb.hid.hidapi.BaseHIDAPIDevice: BaseHIDAPIDevice.connect(): device not found
+2018-01-01 13:17:30,512 [BaseCreateLabDeviceConnectivityManager.executorService pool-1-thread-1] ERROR: edu.cmu.ri.createlab.terk.robot.finch.DefaultFinchController: HIDDeviceNotFoundException while trying to connect to the Finch, returning null
+edu.cmu.ri.createlab.usb.hid.HIDDeviceNotFoundException: Device with vendor ID [2354] and product ID [1111] not found.
+	at edu.cmu.ri.createlab.usb.hid.hidapi.BaseHIDAPIDevice.connect(BaseHIDAPIDevice.java:223)
+	at edu.cmu.ri.createlab.usb.hid.hidapi.BaseHIDAPIDevice.connectExclusively(BaseHIDAPIDevice.java:229)
+	at edu.cmu.ri.createlab.terk.robot.finch.DefaultFinchController.create(DefaultFinchController.java:64)
+	at edu.cmu.ri.createlab.device.connectivity.FinchConnectivityManager.scanForDeviceAndCreateProxy(FinchConnectivityManager.java:14)
+	at edu.cmu.ri.createlab.device.connectivity.BaseCreateLabDeviceConnectivityManager$DeviceScanner.run(BaseCreateLabDeviceConnectivityManager.java:229)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+2018-01-01 13:17:30,514 [BaseCreateLabDeviceConnectivityManager.executorService pool-1-thread-1] DEBUG: edu.cmu.ri.createlab.device.connectivity.BaseCreateLabDeviceConnectivityManager: CreateLabDeviceConnectivityManagerImpl$DeviceScanner.run(): connection failed
+2018-01-01 13:17:30,514 [BaseCreateLabDeviceConnectivityManager.executorService pool-1-thread-1] DEBUG: edu.cmu.ri.createlab.device.connectivity.BaseCreateLabDeviceConnectivityManager: Failed to connect, but we're still in scan mode, so schedule a new scan
+2018-01-01 13:17:31,517 [BaseCreateLabDeviceConnectivityManager.executorService pool-1-thread-1] DEBUG: edu.cmu.ri.createlab.device.connectivity.BaseCreateLabDeviceConnectivityManager: CreateLabDeviceConnectivityManagerImpl$DeviceScanner.run()
+2018-01-01 13:17:31,517 [BaseCreateLabDeviceConnectivityManager.executorService pool-1-thread-1] DEBUG: edu.cmu.ri.createlab.terk.robot.finch.LocalFinchConnectionStrategy: LocalFinchConnectionStrategy.handleConnectionStateChange(): OLD [Scanning]  NEW [Scanning]  port []
+2018-01-01 13:17:31,517 [BaseCreateLabDeviceConnectivityManager.executorService pool-1-thread-1] DEBUG: edu.cmu.ri.createlab.terk.robot.finch.DefaultFinchController: DefaultFinchController.create(): creating HID device for vendor ID [2354] and product ID [1111]
+2018-01-01 13:17:31,517 [BaseCreateLabDeviceConnectivityManager.executorService pool-1-thread-1] DEBUG: edu.cmu.ri.createlab.terk.robot.finch.DefaultFinchController: DefaultFinchController.create(): attempting connection...
+2018-01-01 13:17:31,517 [BaseCreateLabDeviceConnectivityManager.executorService pool-1-thread-1] DEBUG: edu.cmu.ri.createlab.usb.hid.hidapi.BaseHIDAPIDevice: BaseHIDAPIDevice.readDeviceInfo(): looking for device with vendor id [2354] and product id [1111]
+2018-01-01 13:17:31,518 [BaseCreateLabDeviceConnectivityManager.executorService pool-1-thread-1] DEBUG: edu.cmu.ri.createlab.usb.hid.hidapi.BaseHIDAPIDevice: BaseHIDAPIDevice.readDeviceInfo(): null HIDDeviceInfo returned from hid_enumerate
+2018-01-01 13:17:31,518 [BaseCreateLabDeviceConnectivityManager.executorService pool-1-thread-1] DEBUG: edu.cmu.ri.createlab.usb.hid.hidapi.BaseHIDAPIDevice: BaseHIDAPIDevice.claimAvailableDevice(): returning the deviceInfo [null]
+2018-01-01 13:17:31,518 [BaseCreateLabDeviceConnectivityManager.executorService pool-1-thread-1] ERROR: edu.cmu.ri.createlab.usb.hid.hidapi.BaseHIDAPIDevice: BaseHIDAPIDevice.connect(): device not found
+2018-01-01 13:17:31,518 [BaseCreateLabDeviceConnectivityManager.executorService pool-1-thread-1] ERROR: edu.cmu.ri.createlab.terk.robot.finch.DefaultFinchController: HIDDeviceNotFoundException while trying to connect to the Finch, returning null
+edu.cmu.ri.createlab.usb.hid.HIDDeviceNotFoundException: Device with vendor ID [2354] and product ID [1111] not found.
+	at edu.cmu.ri.createlab.usb.hid.hidapi.BaseHIDAPIDevice.connect(BaseHIDAPIDevice.java:223)
+	at edu.cmu.ri.createlab.usb.hid.hidapi.BaseHIDAPIDevice.connectExclusively(BaseHIDAPIDevice.java:229)
+	at edu.cmu.ri.createlab.terk.robot.finch.DefaultFinchController.create(DefaultFinchController.java:64)
+	at edu.cmu.ri.createlab.device.connectivity.FinchConnectivityManager.scanForDeviceAndCreateProxy(FinchConnectivityManager.java:14)
+	at edu.cmu.ri.createlab.device.connectivity.BaseCreateLabDeviceConnectivityManager$DeviceScanner.run(BaseCreateLabDeviceConnectivityManager.java:229)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+2018-01-01 13:17:31,520 [BaseCreateLabDeviceConnectivityManager.executorService pool-1-thread-1] DEBUG: edu.cmu.ri.createlab.device.connectivity.BaseCreateLabDeviceConnectivityManager: CreateLabDeviceConnectivityManagerImpl$DeviceScanner.run(): connection failed
+2018-01-01 13:17:31,520 [BaseCreateLabDeviceConnectivityManager.executorService pool-1-thread-1] DEBUG: edu.cmu.ri.createlab.device.connectivity.BaseCreateLabDeviceConnectivityManager: Failed to connect, but we're still in scan mode, so schedule a new scan
+2018-01-01 13:19:48,041 [main] DEBUG: edu.cmu.ri.createlab.terk.application.TerkApplication: TerkApplication.TerkApplication()
+2018-01-01 13:19:48,042 [main] INFO : edu.cmu.ri.createlab.terk.application.TerkApplication: TerkApplication.TerkApplication(): System property [terk-application.connection-strategy.class.name] is not defined.  Attempting to use default [edu.cmu.ri.createlab.terk.robot.finch.LocalFinchConnectionStrategy] implementation class instead.
+2018-01-01 13:19:48,050 [main] DEBUG: edu.cmu.ri.createlab.terk.application.TerkApplication: TerkApplication.TerkApplication(): successfully instantiated ConnectionStrategy implementation class [edu.cmu.ri.createlab.terk.robot.finch.LocalFinchConnectionStrategy]
+2018-01-01 13:19:49,053 [main] DEBUG: edu.cmu.ri.createlab.device.connectivity.BaseCreateLabDeviceConnectivityManager: BaseCreateLabDeviceConnectivityManager: scanAndConnectWorkhorseRunnable.run()
+2018-01-01 13:19:49,053 [main] DEBUG: edu.cmu.ri.createlab.device.connectivity.BaseCreateLabDeviceConnectivityManager: BaseCreateLabDeviceConnectivityManager.disconnect()
+2018-01-01 13:19:49,053 [main] DEBUG: edu.cmu.ri.createlab.terk.robot.finch.LocalFinchConnectionStrategy: LocalFinchConnectionStrategy.handleConnectionStateChange(): OLD [Disconnected]  NEW [Disconnected]  port []
+2018-01-01 13:19:49,054 [BaseCreateLabDeviceConnectivityManager.executorService pool-1-thread-1] DEBUG: edu.cmu.ri.createlab.device.connectivity.BaseCreateLabDeviceConnectivityManager: CreateLabDeviceConnectivityManagerImpl$DeviceScanner.run()
+2018-01-01 13:19:49,054 [BaseCreateLabDeviceConnectivityManager.executorService pool-1-thread-1] DEBUG: edu.cmu.ri.createlab.terk.robot.finch.LocalFinchConnectionStrategy: LocalFinchConnectionStrategy.handleConnectionStateChange(): OLD [Disconnected]  NEW [Scanning]  port []
+2018-01-01 13:19:49,059 [BaseCreateLabDeviceConnectivityManager.executorService pool-1-thread-1] DEBUG: edu.cmu.ri.createlab.terk.robot.finch.DefaultFinchController: DefaultFinchController.create(): creating HID device for vendor ID [2354] and product ID [1111]
+2018-01-01 13:19:49,239 [BaseCreateLabDeviceConnectivityManager.executorService pool-1-thread-1] DEBUG: edu.cmu.ri.createlab.terk.robot.finch.DefaultFinchController: DefaultFinchController.create(): attempting connection...
+2018-01-01 13:19:49,240 [BaseCreateLabDeviceConnectivityManager.executorService pool-1-thread-1] DEBUG: edu.cmu.ri.createlab.usb.hid.hidapi.BaseHIDAPIDevice: BaseHIDAPIDevice.readDeviceInfo(): looking for device with vendor id [2354] and product id [1111]
+2018-01-01 13:19:49,245 [BaseCreateLabDeviceConnectivityManager.executorService pool-1-thread-1] DEBUG: edu.cmu.ri.createlab.util.NativeLibraryVersionChooser: NativeLibraryVersionChooser.getLibraryName(): sun.arch.data.model system property = [64]
+2018-01-01 13:19:49,245 [BaseCreateLabDeviceConnectivityManager.executorService pool-1-thread-1] DEBUG: edu.cmu.ri.createlab.util.NativeLibraryVersionChooser: NativeLibraryVersionChooser.getLibraryName(): trying to load library [hidapi64]...
+2018-01-01 13:19:49,246 [BaseCreateLabDeviceConnectivityManager.executorService pool-1-thread-1] DEBUG: edu.cmu.ri.createlab.util.NativeLibraryVersionChooser: NativeLibraryVersionChooser.getLibraryName(): successfully loaded library [hidapi64]
+2018-01-01 13:19:49,246 [BaseCreateLabDeviceConnectivityManager.executorService pool-1-thread-1] DEBUG: edu.cmu.ri.createlab.util.NativeLibraryVersionChooser: NativeLibraryVersionChooser.getLibraryName(): returning [hidapi64]
+2018-01-01 13:19:49,754 [BaseCreateLabDeviceConnectivityManager.executorService pool-1-thread-1] DEBUG: edu.cmu.ri.createlab.usb.hid.hidapi.BaseHIDAPIDevice: BaseHIDAPIDevice.readDeviceInfo(): found matching device:
+2018-01-01 13:19:49,754 [BaseCreateLabDeviceConnectivityManager.executorService pool-1-thread-1] DEBUG: edu.cmu.ri.createlab.usb.hid.hidapi.BaseHIDAPIDevice:    manufacturer   = [BirdBrain Tools]
+2018-01-01 13:19:49,754 [BaseCreateLabDeviceConnectivityManager.executorService pool-1-thread-1] DEBUG: edu.cmu.ri.createlab.usb.hid.hidapi.BaseHIDAPIDevice:    product        = [Finch]
+2018-01-01 13:19:49,754 [BaseCreateLabDeviceConnectivityManager.executorService pool-1-thread-1] DEBUG: edu.cmu.ri.createlab.usb.hid.hidapi.BaseHIDAPIDevice:    serial number  = []
+2018-01-01 13:19:49,754 [BaseCreateLabDeviceConnectivityManager.executorService pool-1-thread-1] DEBUG: edu.cmu.ri.createlab.usb.hid.hidapi.BaseHIDAPIDevice:    path           = [USB_2354_1111_0x7f80f5e73ea0]
+2018-01-01 13:19:49,754 [BaseCreateLabDeviceConnectivityManager.executorService pool-1-thread-1] DEBUG: edu.cmu.ri.createlab.usb.hid.hidapi.BaseHIDAPIDevice:    Vendor/Product = [2354|1111]
+2018-01-01 13:19:49,754 [BaseCreateLabDeviceConnectivityManager.executorService pool-1-thread-1] DEBUG: edu.cmu.ri.createlab.usb.hid.hidapi.BaseHIDAPIDevice: BaseHIDAPIDevice.claimAvailableDevice(): Device with path [USB_2354_1111_0x7f80f5e73ea0] NOT in use, so we'll use it
+2018-01-01 13:19:49,754 [BaseCreateLabDeviceConnectivityManager.executorService pool-1-thread-1] DEBUG: edu.cmu.ri.createlab.usb.hid.hidapi.BaseHIDAPIDevice: BaseHIDAPIDevice.claimAvailableDevice(): returing deviceInfo! [edu.cmu.ri.createlab.usb.hid.DeviceInfoImpl@6703e6fc]
+2018-01-01 13:19:49,755 [BaseCreateLabDeviceConnectivityManager.executorService pool-1-thread-1] DEBUG: edu.cmu.ri.createlab.usb.hid.hidapi.BaseHIDAPIDevice: BaseHIDAPIDevice.claimAvailableDevice(): returning the deviceInfo [edu.cmu.ri.createlab.usb.hid.DeviceInfoImpl@6703e6fc]
+2018-01-01 13:19:49,775 [BaseCreateLabDeviceConnectivityManager.executorService pool-1-thread-1] DEBUG: edu.cmu.ri.createlab.device.connectivity.BaseCreateLabDeviceConnectivityManager: CreateLabDeviceConnectivityManagerImpl$DeviceScanner.run(): connection established!
+2018-01-01 13:19:49,776 [BaseCreateLabDeviceConnectivityManager.executorService pool-1-thread-1] DEBUG: edu.cmu.ri.createlab.terk.robot.finch.LocalFinchConnectionStrategy: LocalFinchConnectionStrategy.handleConnectionStateChange(): OLD [Scanning]  NEW [Connected]  port [USB_2354_1111_0x7f80f5e73ea0]
+2018-01-01 13:19:49,781 [main] DEBUG: edu.cmu.ri.createlab.terk.robot.finch.services.FinchServiceManager: FinchServiceManager.loadService() needs to load the [::TeRK::led::FullColorLEDService] service
+2018-01-01 13:19:49,781 [main] DEBUG: edu.cmu.ri.createlab.terk.robot.finch.services.FinchServiceFactory: FinchServiceFactory.createService(::TeRK::led::FullColorLEDService)
+2018-01-01 13:19:49,784 [main] DEBUG: edu.cmu.ri.createlab.terk.properties.BasicPropertyManager: ServantPropertyManager.setReadOnlyProperty(device.count,1)
+2018-01-01 13:19:49,784 [main] DEBUG: edu.cmu.ri.createlab.terk.properties.BasicPropertyManager: ServantPropertyManager.setReadOnlyProperty(::TeRK::led::FullColorLEDService::min-intensity,0)
+2018-01-01 13:19:49,784 [main] DEBUG: edu.cmu.ri.createlab.terk.properties.BasicPropertyManager: ServantPropertyManager.setReadOnlyProperty(::TeRK::led::FullColorLEDService::max-intensity,255)
+2018-01-01 13:19:57,792 [main] DEBUG: edu.cmu.ri.createlab.terk.application.TerkApplication: TerkApplication.shutdown()
+2018-01-01 13:19:57,792 [main] DEBUG: edu.cmu.ri.createlab.terk.application.TerkApplication: TerkApplication$shutdownRunnable.run()
+2018-01-01 13:19:57,792 [main] DEBUG: edu.cmu.ri.createlab.terk.robot.finch.LocalFinchConnectionStrategy: LocalFinchConnectionStrategy.prepareForShutdown()
+2018-01-01 13:19:57,792 [main] DEBUG: edu.cmu.ri.createlab.terk.robot.finch.LocalFinchConnectionStrategy: LocalFinchConnectionStrategy.disconnect()
+2018-01-01 13:19:57,793 [main] DEBUG: edu.cmu.ri.createlab.device.connectivity.BaseCreateLabDeviceConnectivityManager: BaseCreateLabDeviceConnectivityManager.disconnect()
+2018-01-01 13:19:57,793 [main] DEBUG: edu.cmu.ri.createlab.terk.robot.finch.DefaultFinchController: DefaultFinchController.disconnect(): Shutting down finch pinger...
+2018-01-01 13:19:57,793 [main] DEBUG: edu.cmu.ri.createlab.terk.robot.finch.DefaultFinchController: DefaultFinchController.disconnect(): Successfully shut down finch pinger.
+2018-01-01 13:19:57,793 [main] DEBUG: edu.cmu.ri.createlab.terk.robot.finch.DefaultFinchController: DefaultFinchController.disconnect(): Now attempting to send the disconnect command to the finch
+2018-01-01 13:19:57,798 [main] DEBUG: edu.cmu.ri.createlab.terk.robot.finch.DefaultFinchController: DefaultFinchController.disconnect(): Successfully disconnected from the finch.
+2018-01-01 13:19:57,798 [main] DEBUG: edu.cmu.ri.createlab.terk.robot.finch.DefaultFinchController: DefaultFinchController.disconnect(): Now shutting down the HIDCommandExecutionQueue...
+2018-01-01 13:19:57,798 [main] DEBUG: edu.cmu.ri.createlab.usb.hid.HIDCommandExecutionQueue: HIDCommandExecutionQueue.shutdown(): Shutting down the HID device command execution queue
+2018-01-01 13:19:57,798 [main] DEBUG: edu.cmu.ri.createlab.usb.hid.HIDCommandExecutionQueue: HIDCommandExecutionQueue.shutdown(): Unexecuted tasks: 0
+2018-01-01 13:19:57,798 [main] DEBUG: edu.cmu.ri.createlab.usb.hid.HIDCommandExecutionQueue: HIDCommandExecutionQueue.shutdown(): Waiting for the HID device command execution queue to shutdown.
+2018-01-01 13:19:57,799 [main] DEBUG: edu.cmu.ri.createlab.usb.hid.HIDCommandExecutionQueue: HIDCommandExecutionQueue.shutdown(): HID device command execution queue successfully shutdown
+2018-01-01 13:19:57,799 [main] DEBUG: edu.cmu.ri.createlab.usb.hid.HIDCommandExecutionQueue: HIDCommandExecutionQueue.shutdown(): Now attempting to disconnect from the HID device...
+2018-01-01 13:19:57,799 [main] DEBUG: edu.cmu.ri.createlab.usb.hid.hidapi.BaseHIDAPIDevice: BaseHIDAPIDevice.releaseDevice(): about to release device [USB_2354_1111_0x7f80f5e73ea0]
+2018-01-01 13:19:57,799 [main] DEBUG: edu.cmu.ri.createlab.usb.hid.hidapi.BaseHIDAPIDevice: BaseHIDAPIDevice.releaseDevice(): done releasing [USB_2354_1111_0x7f80f5e73ea0]
+2018-01-01 13:19:57,800 [main] DEBUG: edu.cmu.ri.createlab.usb.hid.hidapi.BaseHIDAPIDevice: BaseHIDAPIDevice.disconnect(): disconnected successfully
+2018-01-01 13:19:57,800 [main] DEBUG: edu.cmu.ri.createlab.usb.hid.HIDCommandExecutionQueue: HIDCommandExecutionQueue.shutdown(): HID device disconnected successfully.
+2018-01-01 13:19:57,800 [main] DEBUG: edu.cmu.ri.createlab.terk.robot.finch.LocalFinchConnectionStrategy: LocalFinchConnectionStrategy.handleConnectionStateChange(): OLD [Connected]  NEW [Disconnected]  port []
+2018-01-01 13:20:13,910 [main] DEBUG: edu.cmu.ri.createlab.terk.application.TerkApplication: TerkApplication.TerkApplication()
+2018-01-01 13:20:13,912 [main] INFO : edu.cmu.ri.createlab.terk.application.TerkApplication: TerkApplication.TerkApplication(): System property [terk-application.connection-strategy.class.name] is not defined.  Attempting to use default [edu.cmu.ri.createlab.terk.robot.finch.LocalFinchConnectionStrategy] implementation class instead.
+2018-01-01 13:20:13,921 [main] DEBUG: edu.cmu.ri.createlab.terk.application.TerkApplication: TerkApplication.TerkApplication(): successfully instantiated ConnectionStrategy implementation class [edu.cmu.ri.createlab.terk.robot.finch.LocalFinchConnectionStrategy]
+2018-01-01 13:20:14,933 [main] DEBUG: edu.cmu.ri.createlab.device.connectivity.BaseCreateLabDeviceConnectivityManager: BaseCreateLabDeviceConnectivityManager: scanAndConnectWorkhorseRunnable.run()
+2018-01-01 13:20:14,933 [main] DEBUG: edu.cmu.ri.createlab.device.connectivity.BaseCreateLabDeviceConnectivityManager: BaseCreateLabDeviceConnectivityManager.disconnect()
+2018-01-01 13:20:14,934 [main] DEBUG: edu.cmu.ri.createlab.terk.robot.finch.LocalFinchConnectionStrategy: LocalFinchConnectionStrategy.handleConnectionStateChange(): OLD [Disconnected]  NEW [Disconnected]  port []
+2018-01-01 13:20:14,934 [BaseCreateLabDeviceConnectivityManager.executorService pool-1-thread-1] DEBUG: edu.cmu.ri.createlab.device.connectivity.BaseCreateLabDeviceConnectivityManager: CreateLabDeviceConnectivityManagerImpl$DeviceScanner.run()
+2018-01-01 13:20:14,934 [BaseCreateLabDeviceConnectivityManager.executorService pool-1-thread-1] DEBUG: edu.cmu.ri.createlab.terk.robot.finch.LocalFinchConnectionStrategy: LocalFinchConnectionStrategy.handleConnectionStateChange(): OLD [Disconnected]  NEW [Scanning]  port []
+2018-01-01 13:20:14,939 [BaseCreateLabDeviceConnectivityManager.executorService pool-1-thread-1] DEBUG: edu.cmu.ri.createlab.terk.robot.finch.DefaultFinchController: DefaultFinchController.create(): creating HID device for vendor ID [2354] and product ID [1111]
+2018-01-01 13:20:15,110 [BaseCreateLabDeviceConnectivityManager.executorService pool-1-thread-1] DEBUG: edu.cmu.ri.createlab.terk.robot.finch.DefaultFinchController: DefaultFinchController.create(): attempting connection...
+2018-01-01 13:20:15,110 [BaseCreateLabDeviceConnectivityManager.executorService pool-1-thread-1] DEBUG: edu.cmu.ri.createlab.usb.hid.hidapi.BaseHIDAPIDevice: BaseHIDAPIDevice.readDeviceInfo(): looking for device with vendor id [2354] and product id [1111]
+2018-01-01 13:20:15,115 [BaseCreateLabDeviceConnectivityManager.executorService pool-1-thread-1] DEBUG: edu.cmu.ri.createlab.util.NativeLibraryVersionChooser: NativeLibraryVersionChooser.getLibraryName(): sun.arch.data.model system property = [64]
+2018-01-01 13:20:15,115 [BaseCreateLabDeviceConnectivityManager.executorService pool-1-thread-1] DEBUG: edu.cmu.ri.createlab.util.NativeLibraryVersionChooser: NativeLibraryVersionChooser.getLibraryName(): trying to load library [hidapi64]...
+2018-01-01 13:20:15,116 [BaseCreateLabDeviceConnectivityManager.executorService pool-1-thread-1] DEBUG: edu.cmu.ri.createlab.util.NativeLibraryVersionChooser: NativeLibraryVersionChooser.getLibraryName(): successfully loaded library [hidapi64]
+2018-01-01 13:20:15,116 [BaseCreateLabDeviceConnectivityManager.executorService pool-1-thread-1] DEBUG: edu.cmu.ri.createlab.util.NativeLibraryVersionChooser: NativeLibraryVersionChooser.getLibraryName(): returning [hidapi64]
+2018-01-01 13:20:15,665 [BaseCreateLabDeviceConnectivityManager.executorService pool-1-thread-1] DEBUG: edu.cmu.ri.createlab.usb.hid.hidapi.BaseHIDAPIDevice: BaseHIDAPIDevice.readDeviceInfo(): found matching device:
+2018-01-01 13:20:15,665 [BaseCreateLabDeviceConnectivityManager.executorService pool-1-thread-1] DEBUG: edu.cmu.ri.createlab.usb.hid.hidapi.BaseHIDAPIDevice:    manufacturer   = [BirdBrain Tools]
+2018-01-01 13:20:15,665 [BaseCreateLabDeviceConnectivityManager.executorService pool-1-thread-1] DEBUG: edu.cmu.ri.createlab.usb.hid.hidapi.BaseHIDAPIDevice:    product        = [Finch]
+2018-01-01 13:20:15,665 [BaseCreateLabDeviceConnectivityManager.executorService pool-1-thread-1] DEBUG: edu.cmu.ri.createlab.usb.hid.hidapi.BaseHIDAPIDevice:    serial number  = []
+2018-01-01 13:20:15,665 [BaseCreateLabDeviceConnectivityManager.executorService pool-1-thread-1] DEBUG: edu.cmu.ri.createlab.usb.hid.hidapi.BaseHIDAPIDevice:    path           = [USB_2354_1111_0x7f84a62990e0]
+2018-01-01 13:20:15,665 [BaseCreateLabDeviceConnectivityManager.executorService pool-1-thread-1] DEBUG: edu.cmu.ri.createlab.usb.hid.hidapi.BaseHIDAPIDevice:    Vendor/Product = [2354|1111]
+2018-01-01 13:20:15,665 [BaseCreateLabDeviceConnectivityManager.executorService pool-1-thread-1] DEBUG: edu.cmu.ri.createlab.usb.hid.hidapi.BaseHIDAPIDevice: BaseHIDAPIDevice.claimAvailableDevice(): Device with path [USB_2354_1111_0x7f84a62990e0] NOT in use, so we'll use it
+2018-01-01 13:20:15,666 [BaseCreateLabDeviceConnectivityManager.executorService pool-1-thread-1] DEBUG: edu.cmu.ri.createlab.usb.hid.hidapi.BaseHIDAPIDevice: BaseHIDAPIDevice.claimAvailableDevice(): returing deviceInfo! [edu.cmu.ri.createlab.usb.hid.DeviceInfoImpl@75615e6a]
+2018-01-01 13:20:15,666 [BaseCreateLabDeviceConnectivityManager.executorService pool-1-thread-1] DEBUG: edu.cmu.ri.createlab.usb.hid.hidapi.BaseHIDAPIDevice: BaseHIDAPIDevice.claimAvailableDevice(): returning the deviceInfo [edu.cmu.ri.createlab.usb.hid.DeviceInfoImpl@75615e6a]
+2018-01-01 13:20:15,688 [BaseCreateLabDeviceConnectivityManager.executorService pool-1-thread-1] DEBUG: edu.cmu.ri.createlab.device.connectivity.BaseCreateLabDeviceConnectivityManager: CreateLabDeviceConnectivityManagerImpl$DeviceScanner.run(): connection established!
+2018-01-01 13:20:15,689 [BaseCreateLabDeviceConnectivityManager.executorService pool-1-thread-1] DEBUG: edu.cmu.ri.createlab.terk.robot.finch.LocalFinchConnectionStrategy: LocalFinchConnectionStrategy.handleConnectionStateChange(): OLD [Scanning]  NEW [Connected]  port [USB_2354_1111_0x7f84a62990e0]
+2018-01-01 13:20:15,694 [main] DEBUG: edu.cmu.ri.createlab.terk.robot.finch.services.FinchServiceManager: FinchServiceManager.loadService() needs to load the [::TeRK::led::FullColorLEDService] service
+2018-01-01 13:20:15,694 [main] DEBUG: edu.cmu.ri.createlab.terk.robot.finch.services.FinchServiceFactory: FinchServiceFactory.createService(::TeRK::led::FullColorLEDService)
+2018-01-01 13:20:15,697 [main] DEBUG: edu.cmu.ri.createlab.terk.properties.BasicPropertyManager: ServantPropertyManager.setReadOnlyProperty(device.count,1)
+2018-01-01 13:20:15,697 [main] DEBUG: edu.cmu.ri.createlab.terk.properties.BasicPropertyManager: ServantPropertyManager.setReadOnlyProperty(::TeRK::led::FullColorLEDService::min-intensity,0)
+2018-01-01 13:20:15,697 [main] DEBUG: edu.cmu.ri.createlab.terk.properties.BasicPropertyManager: ServantPropertyManager.setReadOnlyProperty(::TeRK::led::FullColorLEDService::max-intensity,255)
+2018-01-01 13:20:15,702 [main] DEBUG: edu.cmu.ri.createlab.terk.application.TerkApplication: TerkApplication.shutdown()
+2018-01-01 13:20:15,702 [main] DEBUG: edu.cmu.ri.createlab.terk.application.TerkApplication: TerkApplication$shutdownRunnable.run()
+2018-01-01 13:20:15,702 [main] DEBUG: edu.cmu.ri.createlab.terk.robot.finch.LocalFinchConnectionStrategy: LocalFinchConnectionStrategy.prepareForShutdown()
+2018-01-01 13:20:15,702 [main] DEBUG: edu.cmu.ri.createlab.terk.robot.finch.LocalFinchConnectionStrategy: LocalFinchConnectionStrategy.disconnect()
+2018-01-01 13:20:15,702 [main] DEBUG: edu.cmu.ri.createlab.device.connectivity.BaseCreateLabDeviceConnectivityManager: BaseCreateLabDeviceConnectivityManager.disconnect()
+2018-01-01 13:20:15,702 [main] DEBUG: edu.cmu.ri.createlab.terk.robot.finch.DefaultFinchController: DefaultFinchController.disconnect(): Shutting down finch pinger...
+2018-01-01 13:20:15,702 [main] DEBUG: edu.cmu.ri.createlab.terk.robot.finch.DefaultFinchController: DefaultFinchController.disconnect(): Successfully shut down finch pinger.
+2018-01-01 13:20:15,702 [main] DEBUG: edu.cmu.ri.createlab.terk.robot.finch.DefaultFinchController: DefaultFinchController.disconnect(): Now attempting to send the disconnect command to the finch
+2018-01-01 13:20:15,709 [main] DEBUG: edu.cmu.ri.createlab.terk.robot.finch.DefaultFinchController: DefaultFinchController.disconnect(): Successfully disconnected from the finch.
+2018-01-01 13:20:15,709 [main] DEBUG: edu.cmu.ri.createlab.terk.robot.finch.DefaultFinchController: DefaultFinchController.disconnect(): Now shutting down the HIDCommandExecutionQueue...
+2018-01-01 13:20:15,710 [main] DEBUG: edu.cmu.ri.createlab.usb.hid.HIDCommandExecutionQueue: HIDCommandExecutionQueue.shutdown(): Shutting down the HID device command execution queue
+2018-01-01 13:20:15,710 [main] DEBUG: edu.cmu.ri.createlab.usb.hid.HIDCommandExecutionQueue: HIDCommandExecutionQueue.shutdown(): Unexecuted tasks: 0
+2018-01-01 13:20:15,710 [main] DEBUG: edu.cmu.ri.createlab.usb.hid.HIDCommandExecutionQueue: HIDCommandExecutionQueue.shutdown(): Waiting for the HID device command execution queue to shutdown.
+2018-01-01 13:20:15,710 [main] DEBUG: edu.cmu.ri.createlab.usb.hid.HIDCommandExecutionQueue: HIDCommandExecutionQueue.shutdown(): HID device command execution queue successfully shutdown
+2018-01-01 13:20:15,710 [main] DEBUG: edu.cmu.ri.createlab.usb.hid.HIDCommandExecutionQueue: HIDCommandExecutionQueue.shutdown(): Now attempting to disconnect from the HID device...
+2018-01-01 13:20:15,710 [main] DEBUG: edu.cmu.ri.createlab.usb.hid.hidapi.BaseHIDAPIDevice: BaseHIDAPIDevice.releaseDevice(): about to release device [USB_2354_1111_0x7f84a62990e0]
+2018-01-01 13:20:15,710 [main] DEBUG: edu.cmu.ri.createlab.usb.hid.hidapi.BaseHIDAPIDevice: BaseHIDAPIDevice.releaseDevice(): done releasing [USB_2354_1111_0x7f84a62990e0]
+2018-01-01 13:20:15,711 [main] DEBUG: edu.cmu.ri.createlab.usb.hid.hidapi.BaseHIDAPIDevice: BaseHIDAPIDevice.disconnect(): disconnected successfully
+2018-01-01 13:20:15,711 [main] DEBUG: edu.cmu.ri.createlab.usb.hid.HIDCommandExecutionQueue: HIDCommandExecutionQueue.shutdown(): HID device disconnected successfully.
+2018-01-01 13:20:15,711 [main] DEBUG: edu.cmu.ri.createlab.terk.robot.finch.LocalFinchConnectionStrategy: LocalFinchConnectionStrategy.handleConnectionStateChange(): OLD [Connected]  NEW [Disconnected]  port []
+2018-01-01 13:20:21,080 [main] DEBUG: edu.cmu.ri.createlab.terk.application.TerkApplication: TerkApplication.TerkApplication()
+2018-01-01 13:20:21,080 [main] INFO : edu.cmu.ri.createlab.terk.application.TerkApplication: TerkApplication.TerkApplication(): System property [terk-application.connection-strategy.class.name] is not defined.  Attempting to use default [edu.cmu.ri.createlab.terk.robot.finch.LocalFinchConnectionStrategy] implementation class instead.
+2018-01-01 13:20:21,090 [main] DEBUG: edu.cmu.ri.createlab.terk.application.TerkApplication: TerkApplication.TerkApplication(): successfully instantiated ConnectionStrategy implementation class [edu.cmu.ri.createlab.terk.robot.finch.LocalFinchConnectionStrategy]
+2018-01-01 13:20:22,027 [main] DEBUG: edu.cmu.ri.createlab.device.connectivity.BaseCreateLabDeviceConnectivityManager: BaseCreateLabDeviceConnectivityManager: scanAndConnectWorkhorseRunnable.run()
+2018-01-01 13:20:22,027 [main] DEBUG: edu.cmu.ri.createlab.device.connectivity.BaseCreateLabDeviceConnectivityManager: BaseCreateLabDeviceConnectivityManager.disconnect()
+2018-01-01 13:20:22,027 [main] DEBUG: edu.cmu.ri.createlab.terk.robot.finch.LocalFinchConnectionStrategy: LocalFinchConnectionStrategy.handleConnectionStateChange(): OLD [Disconnected]  NEW [Disconnected]  port []
+2018-01-01 13:20:22,028 [BaseCreateLabDeviceConnectivityManager.executorService pool-1-thread-1] DEBUG: edu.cmu.ri.createlab.device.connectivity.BaseCreateLabDeviceConnectivityManager: CreateLabDeviceConnectivityManagerImpl$DeviceScanner.run()
+2018-01-01 13:20:22,028 [BaseCreateLabDeviceConnectivityManager.executorService pool-1-thread-1] DEBUG: edu.cmu.ri.createlab.terk.robot.finch.LocalFinchConnectionStrategy: LocalFinchConnectionStrategy.handleConnectionStateChange(): OLD [Disconnected]  NEW [Scanning]  port []
+2018-01-01 13:20:22,033 [BaseCreateLabDeviceConnectivityManager.executorService pool-1-thread-1] DEBUG: edu.cmu.ri.createlab.terk.robot.finch.DefaultFinchController: DefaultFinchController.create(): creating HID device for vendor ID [2354] and product ID [1111]
+2018-01-01 13:20:22,202 [BaseCreateLabDeviceConnectivityManager.executorService pool-1-thread-1] DEBUG: edu.cmu.ri.createlab.terk.robot.finch.DefaultFinchController: DefaultFinchController.create(): attempting connection...
+2018-01-01 13:20:22,202 [BaseCreateLabDeviceConnectivityManager.executorService pool-1-thread-1] DEBUG: edu.cmu.ri.createlab.usb.hid.hidapi.BaseHIDAPIDevice: BaseHIDAPIDevice.readDeviceInfo(): looking for device with vendor id [2354] and product id [1111]
+2018-01-01 13:20:22,207 [BaseCreateLabDeviceConnectivityManager.executorService pool-1-thread-1] DEBUG: edu.cmu.ri.createlab.util.NativeLibraryVersionChooser: NativeLibraryVersionChooser.getLibraryName(): sun.arch.data.model system property = [64]
+2018-01-01 13:20:22,207 [BaseCreateLabDeviceConnectivityManager.executorService pool-1-thread-1] DEBUG: edu.cmu.ri.createlab.util.NativeLibraryVersionChooser: NativeLibraryVersionChooser.getLibraryName(): trying to load library [hidapi64]...
+2018-01-01 13:20:22,208 [BaseCreateLabDeviceConnectivityManager.executorService pool-1-thread-1] DEBUG: edu.cmu.ri.createlab.util.NativeLibraryVersionChooser: NativeLibraryVersionChooser.getLibraryName(): successfully loaded library [hidapi64]
+2018-01-01 13:20:22,208 [BaseCreateLabDeviceConnectivityManager.executorService pool-1-thread-1] DEBUG: edu.cmu.ri.createlab.util.NativeLibraryVersionChooser: NativeLibraryVersionChooser.getLibraryName(): returning [hidapi64]
+2018-01-01 13:20:22,729 [BaseCreateLabDeviceConnectivityManager.executorService pool-1-thread-1] DEBUG: edu.cmu.ri.createlab.usb.hid.hidapi.BaseHIDAPIDevice: BaseHIDAPIDevice.readDeviceInfo(): found matching device:
+2018-01-01 13:20:22,729 [BaseCreateLabDeviceConnectivityManager.executorService pool-1-thread-1] DEBUG: edu.cmu.ri.createlab.usb.hid.hidapi.BaseHIDAPIDevice:    manufacturer   = [BirdBrain Tools]
+2018-01-01 13:20:22,729 [BaseCreateLabDeviceConnectivityManager.executorService pool-1-thread-1] DEBUG: edu.cmu.ri.createlab.usb.hid.hidapi.BaseHIDAPIDevice:    product        = [Finch]
+2018-01-01 13:20:22,729 [BaseCreateLabDeviceConnectivityManager.executorService pool-1-thread-1] DEBUG: edu.cmu.ri.createlab.usb.hid.hidapi.BaseHIDAPIDevice:    serial number  = []
+2018-01-01 13:20:22,729 [BaseCreateLabDeviceConnectivityManager.executorService pool-1-thread-1] DEBUG: edu.cmu.ri.createlab.usb.hid.hidapi.BaseHIDAPIDevice:    path           = [USB_2354_1111_0x7f8602295630]
+2018-01-01 13:20:22,729 [BaseCreateLabDeviceConnectivityManager.executorService pool-1-thread-1] DEBUG: edu.cmu.ri.createlab.usb.hid.hidapi.BaseHIDAPIDevice:    Vendor/Product = [2354|1111]
+2018-01-01 13:20:22,729 [BaseCreateLabDeviceConnectivityManager.executorService pool-1-thread-1] DEBUG: edu.cmu.ri.createlab.usb.hid.hidapi.BaseHIDAPIDevice: BaseHIDAPIDevice.claimAvailableDevice(): Device with path [USB_2354_1111_0x7f8602295630] NOT in use, so we'll use it
+2018-01-01 13:20:22,729 [BaseCreateLabDeviceConnectivityManager.executorService pool-1-thread-1] DEBUG: edu.cmu.ri.createlab.usb.hid.hidapi.BaseHIDAPIDevice: BaseHIDAPIDevice.claimAvailableDevice(): returing deviceInfo! [edu.cmu.ri.createlab.usb.hid.DeviceInfoImpl@6881bbd7]
+2018-01-01 13:20:22,730 [BaseCreateLabDeviceConnectivityManager.executorService pool-1-thread-1] DEBUG: edu.cmu.ri.createlab.usb.hid.hidapi.BaseHIDAPIDevice: BaseHIDAPIDevice.claimAvailableDevice(): returning the deviceInfo [edu.cmu.ri.createlab.usb.hid.DeviceInfoImpl@6881bbd7]
+2018-01-01 13:20:22,750 [BaseCreateLabDeviceConnectivityManager.executorService pool-1-thread-1] DEBUG: edu.cmu.ri.createlab.device.connectivity.BaseCreateLabDeviceConnectivityManager: CreateLabDeviceConnectivityManagerImpl$DeviceScanner.run(): connection established!
+2018-01-01 13:20:22,751 [BaseCreateLabDeviceConnectivityManager.executorService pool-1-thread-1] DEBUG: edu.cmu.ri.createlab.terk.robot.finch.LocalFinchConnectionStrategy: LocalFinchConnectionStrategy.handleConnectionStateChange(): OLD [Scanning]  NEW [Connected]  port [USB_2354_1111_0x7f8602295630]
+2018-01-01 13:20:22,755 [main] DEBUG: edu.cmu.ri.createlab.terk.robot.finch.services.FinchServiceManager: FinchServiceManager.loadService() needs to load the [::TeRK::led::FullColorLEDService] service
+2018-01-01 13:20:22,756 [main] DEBUG: edu.cmu.ri.createlab.terk.robot.finch.services.FinchServiceFactory: FinchServiceFactory.createService(::TeRK::led::FullColorLEDService)
+2018-01-01 13:20:22,759 [main] DEBUG: edu.cmu.ri.createlab.terk.properties.BasicPropertyManager: ServantPropertyManager.setReadOnlyProperty(device.count,1)
+2018-01-01 13:20:22,759 [main] DEBUG: edu.cmu.ri.createlab.terk.properties.BasicPropertyManager: ServantPropertyManager.setReadOnlyProperty(::TeRK::led::FullColorLEDService::min-intensity,0)
+2018-01-01 13:20:22,759 [main] DEBUG: edu.cmu.ri.createlab.terk.properties.BasicPropertyManager: ServantPropertyManager.setReadOnlyProperty(::TeRK::led::FullColorLEDService::max-intensity,255)
+2018-01-01 13:20:22,765 [main] DEBUG: edu.cmu.ri.createlab.terk.application.TerkApplication: TerkApplication.shutdown()
+2018-01-01 13:20:22,765 [main] DEBUG: edu.cmu.ri.createlab.terk.application.TerkApplication: TerkApplication$shutdownRunnable.run()
+2018-01-01 13:20:22,765 [main] DEBUG: edu.cmu.ri.createlab.terk.robot.finch.LocalFinchConnectionStrategy: LocalFinchConnectionStrategy.prepareForShutdown()
+2018-01-01 13:20:22,765 [main] DEBUG: edu.cmu.ri.createlab.terk.robot.finch.LocalFinchConnectionStrategy: LocalFinchConnectionStrategy.disconnect()
+2018-01-01 13:20:22,765 [main] DEBUG: edu.cmu.ri.createlab.device.connectivity.BaseCreateLabDeviceConnectivityManager: BaseCreateLabDeviceConnectivityManager.disconnect()
+2018-01-01 13:20:22,765 [main] DEBUG: edu.cmu.ri.createlab.terk.robot.finch.DefaultFinchController: DefaultFinchController.disconnect(): Shutting down finch pinger...
+2018-01-01 13:20:22,766 [main] DEBUG: edu.cmu.ri.createlab.terk.robot.finch.DefaultFinchController: DefaultFinchController.disconnect(): Successfully shut down finch pinger.
+2018-01-01 13:20:22,766 [main] DEBUG: edu.cmu.ri.createlab.terk.robot.finch.DefaultFinchController: DefaultFinchController.disconnect(): Now attempting to send the disconnect command to the finch
+2018-01-01 13:20:22,773 [main] DEBUG: edu.cmu.ri.createlab.terk.robot.finch.DefaultFinchController: DefaultFinchController.disconnect(): Successfully disconnected from the finch.
+2018-01-01 13:20:22,773 [main] DEBUG: edu.cmu.ri.createlab.terk.robot.finch.DefaultFinchController: DefaultFinchController.disconnect(): Now shutting down the HIDCommandExecutionQueue...
+2018-01-01 13:20:22,773 [main] DEBUG: edu.cmu.ri.createlab.usb.hid.HIDCommandExecutionQueue: HIDCommandExecutionQueue.shutdown(): Shutting down the HID device command execution queue
+2018-01-01 13:20:22,773 [main] DEBUG: edu.cmu.ri.createlab.usb.hid.HIDCommandExecutionQueue: HIDCommandExecutionQueue.shutdown(): Unexecuted tasks: 0
+2018-01-01 13:20:22,773 [main] DEBUG: edu.cmu.ri.createlab.usb.hid.HIDCommandExecutionQueue: HIDCommandExecutionQueue.shutdown(): Waiting for the HID device command execution queue to shutdown.
+2018-01-01 13:20:22,773 [main] DEBUG: edu.cmu.ri.createlab.usb.hid.HIDCommandExecutionQueue: HIDCommandExecutionQueue.shutdown(): HID device command execution queue successfully shutdown
+2018-01-01 13:20:22,773 [main] DEBUG: edu.cmu.ri.createlab.usb.hid.HIDCommandExecutionQueue: HIDCommandExecutionQueue.shutdown(): Now attempting to disconnect from the HID device...
+2018-01-01 13:20:22,773 [main] DEBUG: edu.cmu.ri.createlab.usb.hid.hidapi.BaseHIDAPIDevice: BaseHIDAPIDevice.releaseDevice(): about to release device [USB_2354_1111_0x7f8602295630]
+2018-01-01 13:20:22,773 [main] DEBUG: edu.cmu.ri.createlab.usb.hid.hidapi.BaseHIDAPIDevice: BaseHIDAPIDevice.releaseDevice(): done releasing [USB_2354_1111_0x7f8602295630]
+2018-01-01 13:20:22,774 [main] DEBUG: edu.cmu.ri.createlab.usb.hid.hidapi.BaseHIDAPIDevice: BaseHIDAPIDevice.disconnect(): disconnected successfully
+2018-01-01 13:20:22,774 [main] DEBUG: edu.cmu.ri.createlab.usb.hid.HIDCommandExecutionQueue: HIDCommandExecutionQueue.shutdown(): HID device disconnected successfully.
+2018-01-01 13:20:22,774 [main] DEBUG: edu.cmu.ri.createlab.terk.robot.finch.LocalFinchConnectionStrategy: LocalFinchConnectionStrategy.handleConnectionStateChange(): OLD [Connected]  NEW [Disconnected]  port []
