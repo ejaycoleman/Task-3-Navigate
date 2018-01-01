@@ -8,8 +8,10 @@ public class Main {
 
 		finchInstance.setLED(255, 255, 255);
 		//finchInstance.sleep(8000);
+		
+		
 				
-		String inputString = "F 4 100";
+		String inputString = "L 4 100";
 		
 		String[] inputArray = inputString.split(" ",-1); 
 		
@@ -57,19 +59,21 @@ public class Main {
 	}
 	
 	private static void forward(Finch finchInstance, int time, int speed) {
-		
+		finchInstance.setWheelVelocities(speed, speed, time);
 	}
 	
 	private static void backward(Finch finchInstance, int time, int speed) {
-		
+		finchInstance.setWheelVelocities(-speed, -speed, time);
 	}
 	
 	private static void rightTurn(Finch finchInstance, int time, int speed) {
-		
+		finchInstance.setWheelVelocities(255, -255, 500);
+		finchInstance.setWheelVelocities(speed, speed, time);
 	}
 	
 	private static void leftTurn(Finch finchInstance, int time, int speed) {
-		
+		finchInstance.setWheelVelocities(-255, 255, 500);
+		finchInstance.setWheelVelocities(speed, speed, time);
 	}
 	
 	private static void reTraceMovements(Finch finchInstance, int quantity) {
