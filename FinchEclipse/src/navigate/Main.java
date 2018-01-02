@@ -1,58 +1,80 @@
 package navigate;
 
+import java.util.ArrayList;
+
+import javax.swing.JOptionPane;
+
+import antlr.collections.List;
 import edu.cmu.ri.createlab.terk.robot.finch.Finch;
 
 public class Main {
 	public static void main(final String[] args) {
+		
 		Finch finchInstance = new Finch();
 
 		finchInstance.setLED(255, 255, 255);
 		//finchInstance.sleep(8000);
 		
-		
+		finchInstance.showAccelerometerGraph();
 				
-		String inputString = "L 4 100";
+		//String inputString = "L 4 100";
+		String inputString;
+		inputString = "";
 		
-		String[] inputArray = inputString.split(" ",-1); 
 		
-		String instructionOption = inputArray[0];
+		
 		
 		int speed;
 		int time;
 		int quantity;
+		List stack = (List) new ArrayList<String>();
+		
+		
+		
+		while(inputString != "Q") {
+			inputString = getUserInput();
+			String[] inputArray = inputString.split(" ",-1); 
+			
+			
+			stack.add(inputString);
+			
+			System.out.println(stack);
+			
+			String instructionOption = inputArray[0];
 
-        switch (instructionOption) {
-            case "F":  
-            		speed = Integer.parseInt(inputArray[1]);
-            		time = Integer.parseInt(inputArray[2]);
-            		forward(finchInstance, speed, time);
-                break;
-            case "B":
-	            	speed = Integer.parseInt(inputArray[1]);
-	        		time = Integer.parseInt(inputArray[2]);
-            		backward(finchInstance, speed, time);
-            		break;
-            case "R":
-	            	speed = Integer.parseInt(inputArray[1]);
-	        		time = Integer.parseInt(inputArray[2]);
-            		rightTurn(finchInstance, speed, time);
-            		break;
-            case "L":
-	            	speed = Integer.parseInt(inputArray[1]);
-	        		time = Integer.parseInt(inputArray[2]);
-            		leftTurn(finchInstance, speed, time);
-            		break;
-            case "T":
-            		quantity = Integer.parseInt(inputArray[1]);
-	            	reTraceMovements(finchInstance, quantity);
-	            	break;
-            case "Q":
-            		quit(finchInstance);
-            		break;
-            default: 
-            		System.out.println("unknown input!");
-                break;
-        }
+	        switch (instructionOption) {
+	            case "F":  
+	            		speed = Integer.parseInt(inputArray[1]);
+	            		time = Integer.parseInt(inputArray[2]);
+	            		forward(finchInstance, speed, time);
+	                break;
+	            case "B":
+		            	speed = Integer.parseInt(inputArray[1]);
+		        		time = Integer.parseInt(inputArray[2]);
+	            		backward(finchInstance, speed, time);
+	            		break;
+	            case "R":
+		            	speed = Integer.parseInt(inputArray[1]);
+		        		time = Integer.parseInt(inputArray[2]);
+	            		rightTurn(finchInstance, speed, time);
+	            		break;
+	            case "L":
+		            	speed = Integer.parseInt(inputArray[1]);
+		        		time = Integer.parseInt(inputArray[2]);
+	            		leftTurn(finchInstance, speed, time);
+	            		break;
+	            case "T":
+	            		quantity = Integer.parseInt(inputArray[1]);
+		            	reTraceMovements(finchInstance, quantity);
+		            	break;
+	            case "Q":
+	            		quit(finchInstance);
+	            		break;
+	            default: 
+	            		System.out.println("unknown input!");
+	                break;
+	        }
+		}
 		
 		// Always end your program with finch.quit()
 		quit(finchInstance);
@@ -83,6 +105,11 @@ public class Main {
 	private static void quit(Finch finchInstance) {
 		finchInstance.quit();
 		System.exit(0);
+	}
+	
+	private static String getUserInput() {
+		return JOptionPane.showInputDialog("Enter your instruction");
+		
 	}
 }
 
