@@ -12,10 +12,10 @@ public class Main {
 		
 		Finch finchInstance = new Finch();
 
-		finchInstance.setLED(255, 255, 255);
+		finchInstance.setLED(0, 255, 0);
 		//finchInstance.sleep(8000);
 		
-		finchInstance.showAccelerometerGraph();
+		//finchInstance.showAccelerometerGraph();
 				
 		//String inputString = "L 4 100";
 		String inputString;
@@ -27,18 +27,19 @@ public class Main {
 		int speed;
 		int time;
 		int quantity;
-		List stack = (List) new ArrayList<String>();
+		//List stack = (List) new ArrayList<String>();
 		
 		
 		
 		while(inputString != "Q") {
 			inputString = getUserInput();
+			System.out.println(inputString);
 			String[] inputArray = inputString.split(" ",-1); 
 			
 			
-			stack.add(inputString);
+			//stack.add(inputString);
 			
-			System.out.println(stack);
+			//System.out.println(stack);
 			
 			String instructionOption = inputArray[0];
 
@@ -65,7 +66,7 @@ public class Main {
 	            		break;
 	            case "T":
 	            		quantity = Integer.parseInt(inputArray[1]);
-		            	reTraceMovements(finchInstance, quantity);
+		            //	reTraceMovements(finchInstance, quantity, stack);
 		            	break;
 	            case "Q":
 	            		quit(finchInstance);
@@ -98,8 +99,10 @@ public class Main {
 		finchInstance.setWheelVelocities(speed, speed, time);
 	}
 	
-	private static void reTraceMovements(Finch finchInstance, int quantity) {
-		
+	private static void reTraceMovements(Finch finchInstance, int quantity, ArrayList<String> stack) {
+		for (int i = 0; i < quantity; i++) {
+			System.out.println(stack.get(stack.size() - i));
+		}
 	}
 	
 	private static void quit(Finch finchInstance) {
