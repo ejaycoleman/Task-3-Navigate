@@ -29,10 +29,10 @@ public class Main {
 		int quantity;
 		ArrayList<String> stack = new ArrayList<String>();
 		
-		stack.add("Ajeet");
-	    stack.add("Harry");
-	    stack.add("Chaitanya");
-	    stack.add("Steve");
+//		stack.add("Ajeet");
+//	    stack.add("Harry");
+//	    stack.add("Chaitanya");
+//	    stack.add("Steve");
 		
 		
 		
@@ -124,6 +124,11 @@ public class Main {
 		for (int i = 0; i < quantity; i++) {
 			System.out.print("index: "+i);
 			System.out.println(stack.get(stack.size() - i - 1));
+			
+			String[] inputArray = stack.get(stack.size() - i - 1).split(" ",-1); 
+			
+			
+			executeCommand(inputArray[0], Integer.parseInt(inputArray[1]), Integer.parseInt(inputArray[2]), finchInstance);
 		}
 	}
 	
@@ -135,6 +140,27 @@ public class Main {
 	private static String getUserInput() {
 		return JOptionPane.showInputDialog("Enter your instruction");
 		
+	}
+	
+	private static void executeCommand(String instructionOption, int speed, int time, Finch finchInstance) {
+
+        switch (instructionOption) {
+            case "F":  
+            		forward(finchInstance, speed, time);
+                break;
+            case "B":
+            		backward(finchInstance, speed, time);
+            		break;
+            case "R":
+            		rightTurn(finchInstance, speed, time);
+            		break;
+            case "L":
+            		leftTurn(finchInstance, speed, time);
+            		break;
+            default: 
+            		System.out.println("unknown input!");
+                break;
+        }
 	}
 }
 
