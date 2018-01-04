@@ -27,7 +27,12 @@ public class Main {
 		int speed;
 		int time;
 		int quantity;
-		//List stack = (List) new ArrayList<String>();
+		ArrayList<String> stack = new ArrayList<String>();
+		
+		stack.add("Ajeet");
+	    stack.add("Harry");
+	    stack.add("Chaitanya");
+	    stack.add("Steve");
 		
 		
 		
@@ -37,36 +42,44 @@ public class Main {
 			String[] inputArray = inputString.split(" ",-1); 
 			
 			
-			//stack.add(inputString);
 			
-			//System.out.println(stack);
+			
+			System.out.println("the stack: "+stack);
 			
 			String instructionOption = inputArray[0];
+			
+			
+			
+			
 
 	        switch (instructionOption) {
 	            case "F":  
+	            		stack.add(inputString);
 	            		speed = Integer.parseInt(inputArray[1]);
 	            		time = Integer.parseInt(inputArray[2]);
 	            		forward(finchInstance, speed, time);
 	                break;
 	            case "B":
+	            		stack.add(inputString);
 		            	speed = Integer.parseInt(inputArray[1]);
 		        		time = Integer.parseInt(inputArray[2]);
 	            		backward(finchInstance, speed, time);
 	            		break;
 	            case "R":
+	            		stack.add(inputString);
 		            	speed = Integer.parseInt(inputArray[1]);
 		        		time = Integer.parseInt(inputArray[2]);
 	            		rightTurn(finchInstance, speed, time);
 	            		break;
 	            case "L":
+	            		stack.add(inputString);
 		            	speed = Integer.parseInt(inputArray[1]);
 		        		time = Integer.parseInt(inputArray[2]);
 	            		leftTurn(finchInstance, speed, time);
 	            		break;
 	            case "T":
 	            		quantity = Integer.parseInt(inputArray[1]);
-		            //	reTraceMovements(finchInstance, quantity, stack);
+		            	reTraceMovements(finchInstance, quantity, stack);
 		            	break;
 	            case "Q":
 	            		quit(finchInstance);
@@ -75,6 +88,14 @@ public class Main {
 	            		System.out.println("unknown input!");
 	                break;
 	        }
+	        
+	        
+//	        if (instructionOption != "T") {
+//				System.out.println("not gonna add: "+instructionOption);
+//				stack.add(inputString);
+//			} else {
+//				System.out.println("gonna add: "+instructionOption);
+//			}
 		}
 		
 		// Always end your program with finch.quit()
@@ -101,7 +122,8 @@ public class Main {
 	
 	private static void reTraceMovements(Finch finchInstance, int quantity, ArrayList<String> stack) {
 		for (int i = 0; i < quantity; i++) {
-			System.out.println(stack.get(stack.size() - i));
+			System.out.print("index: "+i);
+			System.out.println(stack.get(stack.size() - i - 1));
 		}
 	}
 	
