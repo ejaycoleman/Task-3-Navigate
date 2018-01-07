@@ -42,7 +42,7 @@ public class Main {
 			String[] inputArray = inputString.split(" ",-1); 
 			
 			
-			
+			System.out.println("Enter command as command, time, speed");
 			
 			System.out.println("the stack: "+stack);
 			
@@ -54,33 +54,62 @@ public class Main {
 
 	        switch (instructionOption) {
 	            case "F":  
-	            		stack.add(inputString);
 	            		speed = Integer.parseInt(inputArray[1]);
 	            		time = Integer.parseInt(inputArray[2]);
-	            		forward(finchInstance, speed, time);
-	                break;
+
+	                
+	            		if (checkInRange(speed, time)) {
+		        			stack.add(inputString);
+		        			forward(finchInstance, speed, time);
+		            		break;
+		        		} else {
+		        			break;
+		        		}
+	            		
 	            case "B":
-	            		stack.add(inputString);
 		            	speed = Integer.parseInt(inputArray[1]);
 		        		time = Integer.parseInt(inputArray[2]);
-	            		backward(finchInstance, speed, time);
-	            		break;
+	            		if (checkInRange(speed, time)) {
+		        			stack.add(inputString);
+		        			backward(finchInstance, speed, time);
+		            		break;
+		        		} else {
+		        			break;
+		        		}
 	            case "R":
-	            		stack.add(inputString);
 		            	speed = Integer.parseInt(inputArray[1]);
 		        		time = Integer.parseInt(inputArray[2]);
-	            		rightTurn(finchInstance, speed, time);
-	            		break;
+	            		
+	            		if (checkInRange(speed, time)) {
+		        			stack.add(inputString);
+		            		rightTurn(finchInstance, speed, time);
+		            		break;
+		        		} else {
+		        			break;
+		        		}
+	            		
 	            case "L":
-	            		stack.add(inputString);
+	            		
 		            	speed = Integer.parseInt(inputArray[1]);
 		        		time = Integer.parseInt(inputArray[2]);
-	            		leftTurn(finchInstance, speed, time);
-	            		break;
+		        		if (checkInRange(speed, time)) {
+		        			stack.add(inputString);
+		            		leftTurn(finchInstance, speed, time);
+		            		break;
+		        		} else {
+		        			break;
+		        		}
 	            case "T":
 	            		quantity = Integer.parseInt(inputArray[1]);
-		            	reTraceMovements(finchInstance, quantity, stack);
-		            	break;
+	            		// allow quantity of stack size to be max
+	            		//quantity = quantity > stack.size()? stack.size(): quantity;
+	            		if (quantity > stack.size()) {
+	            			System.out.println("Cannot exceed: "+ stack.size());
+	            			break;
+	            		} else {
+			            	reTraceMovements(finchInstance, quantity, stack);
+			            	break;
+	            		}
 	            case "Q":
 	            		quit(finchInstance);
 	            		break;
@@ -100,6 +129,15 @@ public class Main {
 		
 		// Always end your program with finch.quit()
 		quit(finchInstance);
+	}
+	
+	private static boolean checkInRange(int time, int speed) {
+		if (speed <= 200 && time < 6) {
+			return true;
+		} else {
+			System.out.println("time or speed too large");
+			return false;
+		}
 	}
 	
 	private static void forward(Finch finchInstance, int time, int speed) {
@@ -138,7 +176,7 @@ public class Main {
 	}
 	
 	private static String getUserInput() {
-		return JOptionPane.showInputDialog("Enter your instruction");
+		return JOptionPane.showInputDialog("Enter your instruction as [command], [time], [speed]");
 		
 	}
 	
