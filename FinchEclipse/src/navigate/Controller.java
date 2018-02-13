@@ -14,32 +14,23 @@ public class Controller {
 	
 	
 	private Finch finchInstance;
+	private ArrayList<String> stack;
 	
 	private void setUpFinch() {
 		this.finchInstance = new Finch();
 	}
 	
 	public void start() {
-		
 		String inputString;
 		inputString = "";
 		
-		int speed;
-		int time;
-		int quantity;
-		ArrayList<String> stack = new ArrayList<String>();
+		this.stack = new ArrayList<String>();
 		
 		
 		while(inputString != "Q") {
 			inputString = getUserInput();
 			
-			// TODO check input gonna be valid
-			
-			// TODO multiply time input by 1000 so its in milliseconds 
-			
-			
 			if (inputString == null) {
-				//this.quit();
 				break;
 			}
 			
@@ -47,167 +38,94 @@ public class Controller {
 			System.out.println(inputString);
 			String[] inputArray = inputString.split(" ",-1); 
 			
-			
-			System.out.println("Enter command as command, time, speed");
-			
-			System.out.println("the stack: "+stack);
+		
 			
 			String instructionOption = inputArray[0];
 			int[] testedParameters;
 			
-//			if (instructionOption == "F") {
-//				
-//			}
-			
 
-	        switch (instructionOption) {
-	            case "F":  
-	            	
-	            		
-	            	
-//	            		speed = Integer.parseInt(inputArray[1]);
-//	            		time = Integer.parseInt(inputArray[2]);
-	            	
-	            		testedParameters = testParameters(inputArray, 3);
-
-	            		if (testedParameters != null) {
-	            			if (checkInRange(testedParameters[0], testedParameters[1])) {
-			        			stack.add(inputString);
-			        			forward(testedParameters[0], testedParameters[1]);
-			            		break;
-			        		} else {
-			        			break;
-			        		}
-	            		} else {
-	            			infoBox("The forward command requires two parameters only", "Unexpected Input");
-	            			break;
-	            		}
-	                
-	            		
-	            		
-	            case "B":
-//		            	speed = Integer.parseInt(inputArray[1]);
-//		        		time = Integer.parseInt(inputArray[2]);
-//	            		if (checkInRange(speed, time)) {
-//		        			stack.add(inputString);
-//		        			backward(speed, time);
-//		            		break;
-//		        		} else {
-//		        			break;
-//		        		}
-		            	testedParameters = testParameters(inputArray, 3);
-	
-	            		if (testedParameters != null) {
-	            			if (checkInRange(testedParameters[0], testedParameters[1])) {
-			        			stack.add(inputString);
-			        			backward(testedParameters[0], testedParameters[1]);
-			            		break;
-			        		} else {
-			        			break;
-			        		}
-	            		} else {
-	            			infoBox("The back command requires two parameters only", "Unexpected Input");
-	            			break;
-	            		}
-	            case "R":
-//		            	speed = Integer.parseInt(inputArray[1]);
-//		        		time = Integer.parseInt(inputArray[2]);
-//	            		
-//	            		if (checkInRange(speed, time)) {
-//		        			stack.add(inputString);
-//		            		rightTurn(speed, time);
-//		            		break;
-//		        		} else {
-//		        			break;
-//		        		}
-	            	
-		            	testedParameters = testParameters(inputArray, 3);
+			switch (instructionOption) {
+		    		case "F": 
+		    		case "B":
+		    		case "L":
+		    		case "R":
+		    			int time = Integer.parseInt(inputArray[1]);
+					int speed = Integer.parseInt(inputArray[2]);
+					
+				
+					if (callTwoParameter(inputArray, inputString)) {
+						switch (instructionOption) {
+			            		case "F": 
+			            			forward(time, speed);
+			            			break;
+			            		case "B":
+			            			backward(time, speed);
+			            			break;
+			            		case "L":
+			            			leftTurn(time, speed);
+			            			break;
+			            		case "R":
+			            			rightTurn(time, speed);
+			            			break;
+			            		default: 
+				            		System.out.println("unknown input!");
+				                break;
+						}        			
+					} else {
+						break;
+					}
+		    			break;
+		    		case "T":
+		    			testedParameters = testParameters(inputArray, 2);
 		            	
-	            		if (testedParameters != null) {
-	            			if (checkInRange(testedParameters[0], testedParameters[1])) {
-			        			stack.add(inputString);
-			        			rightTurn(testedParameters[0], testedParameters[1]);
-			            		break;
-			        		} else {
-			        			break;
-			        		}
-	            		} else {
-	            			infoBox("The right command requires two parameters only", "Unexpected Input");
-	            			break;
-	            		}
-	            		
-	            case "L":
-	            		
-//		            	speed = Integer.parseInt(inputArray[1]);
-//		        		time = Integer.parseInt(inputArray[2]);
-//		        		if (checkInRange(speed, time)) {
-//		        			stack.add(inputString);
-//		            		leftTurn(speed, time);
-//		            		break;
-//		        		} else {
-//		        			break;
-//		        		}
-	            	
-		            	testedParameters = testParameters(inputArray, 3);
-		            	
-	            		if (testedParameters != null) {
-	            			if (checkInRange(testedParameters[0], testedParameters[1])) {
-			        			stack.add(inputString);
-			        			leftTurn(testedParameters[0], testedParameters[1]);
-			            		break;
-			        		} else {
-			        			break;
-			        		}
-	            		} else {
-	            			infoBox("The left command requires two parameters only", "Unexpected Input");
-	            			break;
-	            		}
-	            		
-	            case "T":
-	            	
-		            	testedParameters = testParameters(inputArray, 2);
-		            	
-	            		if (testedParameters != null) {
-
-		            		if (testedParameters[1] > stack.size()) {
+		        		if (testedParameters != null) {
+		
+		            		if (testedParameters[0] > stack.size()) {
 		            			infoBox("Stack cannot exceed: "+ stack.size(), "Stack Overflow!");
 		            			break;
 		            		} else {
-				            	reTraceMovements(testedParameters[1], stack);
+				            	reTraceMovements(testedParameters[0], stack);
 				            	break;
 		            		}
-	            		} else {
-	            			infoBox("The trace command requires one parameter only", "Unexpected Input");
-	            			break;
-	            		}
-	            		
-	            case "Q":
-	            		quit();
-	            		break;
-	            default: 
-	            		System.out.println("unknown input!");
-	                break;
-	        }
+		        		} else {
+		        			infoBox("The trace command requires one parameter only", "Unexpected Input");
+		        			break;
+		        		}
+		    		case "Q":
+		    			quit();
+	        			break;
+		    		default: 
+		        		System.out.println("unknown input!");
+		            break;
+			}
+
 	        
 		}
-		
-		// Always end your program with finch.quit()
+
 		quit();
 	}
 	
 	private int[] testParameters(String[] inputArray, int expected) {
 		int speed;
 		int time;
+		int amount;
 		if (inputArray.length == expected) {
 			
 			try {
-				speed = Integer.parseInt(inputArray[1]);
-        			time = Integer.parseInt(inputArray[2]);
+				if (expected == 3) {
+					speed = Integer.parseInt(inputArray[1]);
+	        			time = Integer.parseInt(inputArray[2]);
+	        			int[] returnArray = {speed, time};
+	        			return returnArray;
+				} else {
+					amount = Integer.parseInt(inputArray[1]);
+					int[] returnArray = {amount};
+					return returnArray;
+				}
 			} catch (NumberFormatException e) {
 				return null;
 			}
-			int[] returnArray = {speed, time};
-			return returnArray;
+			
 		} else {
 			return null;
 		}
@@ -293,4 +211,22 @@ public class Controller {
     {
         JOptionPane.showMessageDialog(null, content, title, JOptionPane.INFORMATION_MESSAGE);
     }
+	
+	
+	private boolean callTwoParameter(String[] inputArray, String inputString) {
+		int[] testedParameters = testParameters(inputArray, 3);
+
+		if (testedParameters != null) {
+			if (checkInRange(testedParameters[0], testedParameters[1])) {
+	    			this.stack.add(inputString);
+	    			//forward(testedParameters[0], testedParameters[1]);
+	        		return true;
+	    		} else {
+	    			return false;
+	    		}
+		} else {
+			infoBox("The "+ inputArray[0] +" command requires two parameters only", "Unexpected Input");
+			return false;
+		}
+	}
 }
