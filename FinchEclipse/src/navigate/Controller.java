@@ -26,7 +26,6 @@ public class Controller {
 		
 		this.stack = new ArrayList<String>();
 		
-		
 		while(inputString != "Q") {
 			inputString = getUserInput();
 			
@@ -34,16 +33,11 @@ public class Controller {
 				break;
 			}
 			
-			
 			System.out.println(inputString);
 			String[] inputArray = inputString.split(" ",-1); 
-			
-		
-			
 			String instructionOption = inputArray[0];
 			int[] testedParameters;
 			
-
 			switch (instructionOption) {
 		    		case "F": 
 		    		case "B":
@@ -58,21 +52,8 @@ public class Controller {
 					
 					break;
 		    		case "T":
-		    			testedParameters = testParameters(inputArray, 2);
-		            	
-		        		if (testedParameters != null) {
-		
-		            		if (testedParameters[0] > stack.size()) {
-		            			infoBox("Stack cannot exceed: "+ stack.size(), "Stack Overflow!");
-		            			break;
-		            		} else {
-				            	reTraceMovements(testedParameters[0], stack);
-				            	break;
-		            		}
-		        		} else {
-		        			infoBox("The trace command requires one parameter only", "Unexpected Input");
-		        			break;
-		        		}
+		    			reTraceMovements(inputArray);
+		    			break;
 		    		case "Q":
 		    			quit();
 	        			break;
@@ -80,11 +61,29 @@ public class Controller {
 		        		System.out.println("unknown input!");
 		            break;
 			}
-
-	        
 		}
-
 		quit();
+	}
+	
+	private void executeCommand(String instructionOption, int speed, int time) {
+
+        switch (instructionOption) {
+            case "F":  
+            		forward(speed, time);
+                break;
+            case "B":
+            		backward(speed, time);
+            		break;
+            case "R":
+            		rightTurn(speed, time);
+            		break;
+            case "L":
+            		leftTurn(speed, time);
+            		break;
+            default: 
+            		System.out.println("unknown input!");
+                break;
+        }
 	}
 	
 	private int[] testParameters(String[] inputArray, int expected) {
@@ -126,6 +125,28 @@ public class Controller {
 		}
 	}
 	
+	private void reTraceMovements(String[] inputArray) {
+		int[] testedParameters = testParameters(inputArray, 2);
+    	
+		if (testedParameters != null) {
+
+	    		if (testedParameters[0] > stack.size()) {
+	    			infoBox("Stack cannot exceed: "+ stack.size(), "Stack Overflow!");
+	    			return;
+	    		} else {
+	    			for (int i = 0; i < testedParameters[0]; i++) {
+	    				String[] stackValue = stack.get(stack.size() - i - 1).split(" ",-1); 
+	    				
+	    				this.executeCommand(stackValue[0], Integer.parseInt(stackValue[1]), Integer.parseInt(stackValue[2]));
+	    			}
+	            	return;
+	    		}
+		} else {
+			infoBox("The trace command requires one parameter only", "Unexpected Input");
+			return;
+		}
+	}
+	
 	private void forward(int time, int speed) {
 		finchInstance.setWheelVelocities(speed, speed, time*1000);
 	}
@@ -144,71 +165,35 @@ public class Controller {
 		finchInstance.setWheelVelocities(speed, speed, time*1000);
 	}
 	
-	private void reTraceMovements(int quantity, ArrayList<String> stack) {
-		for (int i = 0; i < quantity; i++) {
-			System.out.print("index: "+i);
-			System.out.println(stack.get(stack.size() - i - 1));
-			
-			String[] inputArray = stack.get(stack.size() - i - 1).split(" ",-1); 
-			
-			
-			this.executeCommand(inputArray[0], Integer.parseInt(inputArray[1]), Integer.parseInt(inputArray[2]));
-		}
-	}
-	
-	private void quit() {
-		System.out.println("quiting...");
-		finchInstance.quit();
-		System.exit(0);
-	}
-	
-	
-	private void executeCommand(String instructionOption, int speed, int time) {
-
-        switch (instructionOption) {
-            case "F":  
-            		forward(speed, time);
-                break;
-            case "B":
-            		backward(speed, time);
-            		break;
-            case "R":
-            		rightTurn(speed, time);
-            		break;
-            case "L":
-            		leftTurn(speed, time);
-            		break;
-            default: 
-            		System.out.println("unknown input!");
-                break;
-        }
-	}
-	
-	private String getUserInput() {
-		return JOptionPane.showInputDialog("Enter your instruction as [command], [time], [speed]");
-		
-	}
-	
-	private void infoBox(String content, String title)
-    {
-        JOptionPane.showMessageDialog(null, content, title, JOptionPane.INFORMATION_MESSAGE);
-    }
-	
-	
 	private boolean callTwoParameter(String[] inputArray, String inputString) {
 		int[] testedParameters = testParameters(inputArray, 3);
 
 		if (testedParameters != null) {
 			if (checkInRange(testedParameters[0], testedParameters[1])) {
 	    			this.stack.add(inputString);
-	    			//forward(testedParameters[0], testedParameters[1]);
+
 	        		return true;
 	    		} else {
+	    			
 	    			return false;
 	    		}
 		} else {
 			infoBox("The "+ inputArray[0] +" command requires two parameters only", "Unexpected Input");
 			return false;
 		}
+	}
+	
+	private String getUserInput() {
+		return JOptionPane.showInputDialog("Enter your instruction as [command], [time], [speed]");
+	}
+	
+	private void infoBox(String content, String title) {
+        JOptionPane.showMessageDialog(null, content, title, JOptionPane.INFORMATION_MESSAGE);
+    }
+	
+	private void quit() {
+		System.out.println("quiting...");
+		finchInstance.quit();
+		System.exit(0);
 	}
 }
