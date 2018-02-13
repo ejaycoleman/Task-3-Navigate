@@ -52,29 +52,11 @@ public class Controller {
 		    			int time = Integer.parseInt(inputArray[1]);
 					int speed = Integer.parseInt(inputArray[2]);
 					
-				
-					if (callTwoParameter(inputArray, inputString)) {
-						switch (instructionOption) {
-			            		case "F": 
-			            			forward(time, speed);
-			            			break;
-			            		case "B":
-			            			backward(time, speed);
-			            			break;
-			            		case "L":
-			            			leftTurn(time, speed);
-			            			break;
-			            		case "R":
-			            			rightTurn(time, speed);
-			            			break;
-			            		default: 
-				            		System.out.println("unknown input!");
-				                break;
-						}        			
-					} else {
-						break;
+					if (callTwoParameter(inputArray, inputString)) {       		
+						executeCommand(instructionOption, time, speed);
 					}
-		    			break;
+					
+					break;
 		    		case "T":
 		    			testedParameters = testParameters(inputArray, 2);
 		            	
@@ -170,7 +152,7 @@ public class Controller {
 			String[] inputArray = stack.get(stack.size() - i - 1).split(" ",-1); 
 			
 			
-			this.executeCommand(inputArray[0], Integer.parseInt(inputArray[1]), Integer.parseInt(inputArray[2]), finchInstance);
+			this.executeCommand(inputArray[0], Integer.parseInt(inputArray[1]), Integer.parseInt(inputArray[2]));
 		}
 	}
 	
@@ -181,7 +163,7 @@ public class Controller {
 	}
 	
 	
-	private void executeCommand(String instructionOption, int speed, int time, Finch finchInstance) {
+	private void executeCommand(String instructionOption, int speed, int time) {
 
         switch (instructionOption) {
             case "F":  
