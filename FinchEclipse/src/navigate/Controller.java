@@ -184,7 +184,7 @@ public class Controller {
 	}
 	
 	private String getUserInput() {
-		return JOptionPane.showInputDialog("Enter your instruction as [command], [time], [speed]");
+		return JOptionPane.showInputDialog("Enter your instruction as [command], [time], [speed]\nInputs: F [2], B [2], R [2], L [2], T [1], Q");
 	}
 	
 	private void infoBox(String content, String title) {
