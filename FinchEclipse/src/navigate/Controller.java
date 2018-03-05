@@ -21,6 +21,7 @@ public class Controller {
 	}
 	
 	public void start() {
+		// should be refactor  
 		String inputString;
 		inputString = "";
 		
@@ -87,6 +88,7 @@ public class Controller {
 	}
 	
 	private int[] testParameters(String[] inputArray, int expected) {
+		// refactor
 		int speed;
 		int time;
 		int amount;
@@ -126,6 +128,8 @@ public class Controller {
 	}
 	
 	private void reTraceMovements(String[] inputArray) {
+		// refactor 
+		
 		int[] testedParameters = testParameters(inputArray, 2);
     	
 		if (testedParameters != null) {
