@@ -44,10 +44,9 @@ public class Controller {
 		    		case "B":
 		    		case "L":
 		    		case "R":
-		    			int time = Integer.parseInt(inputArray[1]);
-					int speed = Integer.parseInt(inputArray[2]);
-					
-					if (callTwoParameter(inputArray, inputString)) {       		
+					if (callTwoParameter(inputArray, inputString)) {    
+						int time = Integer.parseInt(inputArray[1]);
+						int speed = Integer.parseInt(inputArray[2]);
 						executeCommand(instructionOption, time, speed);
 					}
 					
