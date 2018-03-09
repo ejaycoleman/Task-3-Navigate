@@ -21,7 +21,7 @@ public class Controller {
 	}
 	
 	public void start() {
-		// should be refactor  
+		// should be refactored  
 		String inputString;
 		inputString = "";
 		
