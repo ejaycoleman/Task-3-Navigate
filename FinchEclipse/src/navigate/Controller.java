@@ -37,8 +37,7 @@ public class Controller {
 			System.out.println(inputString);
 			String[] inputArray = inputString.split(" ",-1); 
 			String instructionOption = inputArray[0];
-			int[] testedParameters;
-			
+
 			switch (instructionOption) {
 		    		case "F": 
 		    		case "B":
