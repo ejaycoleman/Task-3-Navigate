@@ -1,4 +1,4 @@
-package followLight;
+package followLightTask;
 
 public class stats extends followLight { //this makes the stats class inherit from the main class
 
@@ -8,7 +8,7 @@ public class stats extends followLight { //this makes the stats class inherit fr
 	static int avgSpeed = 0; //we want this to reset to zero each time the software runs.
 	
 	
-	public static void main (String args[])
+	public static void main ()
 		{
 		int i = 0; // this variable will act as a placeholder 
 		for (i=0; i < speedList.size(); i++ ); 

@@ -1,8 +1,8 @@
-package followLight;
+package followLightTask;
 import java.util.Scanner;
 public class ui extends followLight {
 	
-	public static void main(String args[])
+	public static void main()
 	{
 		viewStats();
 	}

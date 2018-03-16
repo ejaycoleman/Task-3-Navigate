@@ -24,9 +24,9 @@ public class Shape {
 		int[] measurements = new int[2];
 		
 		System.out.print("Width: ");
-		int width = Main.scan.nextInt();
+		int width = drawShapeMain.scan.nextInt();
 		System.out.print("Height: ");
-		int height = Main.scan.nextInt();
+		int height = drawShapeMain.scan.nextInt();
 		
 		measurements[0] = width;
 		measurements[1] = height;

@@ -1,4 +1,4 @@
-package followLight;
+package followLightTask;
 import java.awt.Color;
 import java.util.ArrayList;
 
@@ -20,7 +20,8 @@ static int ambiantLight = 80; // this is the light sensor threshold
 	
 
 	
-public static void main (String args[])
+//public static void main (String args[])
+public void startFollowLight()
 {
 	System.out.println("To begin, shine a light infront of the finch");
 	myFinch.sleep(5000); //makes the finch sleep for 5 seconds so that the user has time to shine a light infront of it
@@ -51,8 +52,8 @@ public static void main (String args[])
 	{
 		//yendTime = System.currentTimeMillis(); // this records the time that the program ends
 		endTime = System.currentTimeMillis();
-		stats.main(args);
-		ui.main(args);
+		stats.main();
+		ui.main();
 	}
 }// end of main method, all other methods for various bits and peices will be below or in seperate classess.
 	

@@ -33,13 +33,13 @@ public class Triangle extends Shape {
 	
 	public void draw() {
 		timeToDraw = (multipler * sideA) * 1000;
-		Main.myFinch.setWheelVelocities(drawSpeed, drawSpeed, (int)timeToDraw + 1000);
-		Main.myFinch.setWheelVelocities(255, 0, 1000);
+		drawShapeMain.myFinch.setWheelVelocities(drawSpeed, drawSpeed, (int)timeToDraw + 1000);
+		drawShapeMain.myFinch.setWheelVelocities(255, 0, 1000);
 		timeToDraw = (multipler * sideB) * 1000;
-		Main.myFinch.setWheelVelocities(drawSpeed, drawSpeed, (int)timeToDraw + 1000);
-		Main.myFinch.setWheelVelocities(150, -75, 1000);
+		drawShapeMain.myFinch.setWheelVelocities(drawSpeed, drawSpeed, (int)timeToDraw + 1000);
+		drawShapeMain.myFinch.setWheelVelocities(150, -75, 1000);
 		timeToDraw = (multipler * sideC) * 1000;
-		Main.myFinch.setWheelVelocities(drawSpeed, drawSpeed, (int)timeToDraw + 1000);
+		drawShapeMain.myFinch.setWheelVelocities(drawSpeed, drawSpeed, (int)timeToDraw + 1000);
 	}
 	
 	// Overriding the Shape method
@@ -47,11 +47,11 @@ public class Triangle extends Shape {
 		int[] measurements = new int[3];
 		
 		System.out.print("Side A: ");
-		int sideA = Main.scan.nextInt();
+		int sideA = drawShapeMain.scan.nextInt();
 		System.out.print("Side B: ");
-		int sideB = Main.scan.nextInt();
+		int sideB = drawShapeMain.scan.nextInt();
 		System.out.print("Side C: ");
-		int sideC = Main.scan.nextInt();
+		int sideC = drawShapeMain.scan.nextInt();
 		
 		measurements[0] = sideA;
 		measurements[1] = sideB;

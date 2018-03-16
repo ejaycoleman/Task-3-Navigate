@@ -2,7 +2,7 @@ package drawShape;
 import java.util.Scanner;
 import edu.cmu.ri.createlab.terk.robot.finch.Finch;
 
-public class Main {	
+public class drawShapeMain {	
 	static String[][] mainMenuOptions = new String[][]{
 	    {"R","Rectangle"},
 	    {"T","Triangle"},
@@ -12,7 +12,8 @@ public class Main {
 	static Scanner scan = new Scanner(System.in);;
 	public static Finch myFinch = new Finch();
 
-	public static void main(String[] args) throws ShapeException {
+	//public static void main(String[] args) throws ShapeException {
+	public void start() throws ShapeException {
 		// TODO Auto-generated method stub
 		String optionSelected = null;
 		while (optionSelected != "Q") {
