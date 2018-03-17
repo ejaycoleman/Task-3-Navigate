@@ -6,7 +6,7 @@ public class Main {
 		Controller finch = new Controller();
 		finch.start();
 	}
-		
+
 	//}
 }
 

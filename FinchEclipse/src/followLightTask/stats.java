@@ -2,14 +2,14 @@ package followLightTask;
 
 public class stats extends followLight { //this makes the stats class inherit from the main class
 
-	
+
 	static long timeTravelled; //we will use this to calculate the total time travelled.
 	static int timeStopped= 0; // we want this and average speed to be reset to zero each time the program runs,so that we get accurate statistics 
 	static int avgSpeed = 0; //we want this to reset to zero each time the software runs.
-	
-	
+
+
 	public static void main ()
-		{
+	{
 		int i = 0; // this variable will act as a placeholder 
 		for (i=0; i < speedList.size(); i++ ); 
 		{ 
@@ -30,7 +30,7 @@ public class stats extends followLight { //this makes the stats class inherit fr
 			timeStopped += stopTimeArray.get(j);
 		}
 		timeTravelled = ((endTime - startTime)/1000)-timeStopped; // we divide by a thousand to convert it from milliseconds to seconds
-		
+
 	}
-	
+
 }

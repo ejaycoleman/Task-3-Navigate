@@ -1,12 +1,12 @@
 package followLightTask;
 import java.util.Scanner;
 public class ui extends followLight {
-	
+
 	public static void main()
 	{
 		viewStats();
 	}
-	
+
 	public static void viewStats()
 	{
 		String viewStats; // initialises the viewStats variables
@@ -21,7 +21,7 @@ public class ui extends followLight {
 			System.out.println("Stop time = "+stats.stopTimer+ " seconds");
 			input.close(); // closes the scanner so the user can not input anything else
 			myFinch.quit(); // this terminates the finch, stopping it from doing anything else
-			
+
 		}
 		else
 		{
@@ -29,7 +29,7 @@ public class ui extends followLight {
 			input.close();	
 			myFinch.quit();
 		}
-		
+
 	}
 
 
