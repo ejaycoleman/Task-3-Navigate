@@ -21,29 +21,29 @@ public class Rectangle extends Shape {
 
 	public void draw() {
 		timeToDraw = (multipler * height) * 1000;
-		drawShapeMain.myFinch.setWheelVelocities(drawSpeed, drawSpeed, (int)timeToDraw + 1000);
+		drawShapeMain.drawShapeFinch.setWheelVelocities(drawSpeed, drawSpeed, (int)timeToDraw + 1000);
 		turnRight();
 
 		// Draw width
 		timeToDraw = (multipler * width) * 1000;
-		drawShapeMain.myFinch.setWheelVelocities(drawSpeed, drawSpeed, (int)timeToDraw);
+		drawShapeMain.drawShapeFinch.setWheelVelocities(drawSpeed, drawSpeed, (int)timeToDraw);
 		turnRight();
 
 		// Draw height again
 		timeToDraw = (multipler * height) * 1000;
-		drawShapeMain.myFinch.setWheelVelocities(drawSpeed, drawSpeed, (int)timeToDraw + 1000);
+		drawShapeMain.drawShapeFinch.setWheelVelocities(drawSpeed, drawSpeed, (int)timeToDraw + 1000);
 		turnRight();
 
 		// Draw width
 		timeToDraw = (multipler * width) * 1000;
-		drawShapeMain.myFinch.setWheelVelocities(drawSpeed, drawSpeed, (int)timeToDraw);
+		drawShapeMain.drawShapeFinch.setWheelVelocities(drawSpeed, drawSpeed, (int)timeToDraw);
 	}
 
 	public void turnRight() {
-		drawShapeMain.myFinch.setWheelVelocities(150, -75, 1000);
+		drawShapeMain.drawShapeFinch.setWheelVelocities(150, -75, 1000);
 	}
 
 	public void turnLeft() {
-		drawShapeMain.myFinch.setWheelVelocities(-75, 150, 1000);
+		drawShapeMain.drawShapeFinch.setWheelVelocities(-75, 150, 1000);
 	}
 }

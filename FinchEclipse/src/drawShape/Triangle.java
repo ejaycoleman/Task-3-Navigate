@@ -33,13 +33,13 @@ public class Triangle extends Shape {
 
 	public void draw() {
 		timeToDraw = (multipler * sideA) * 1000;
-		drawShapeMain.myFinch.setWheelVelocities(drawSpeed, drawSpeed, (int)timeToDraw + 1000);
-		drawShapeMain.myFinch.setWheelVelocities(255, 0, 1000);
+		drawShapeMain.drawShapeFinch.setWheelVelocities(drawSpeed, drawSpeed, (int)timeToDraw + 1000);
+		drawShapeMain.drawShapeFinch.setWheelVelocities(255, 0, 1000);
 		timeToDraw = (multipler * sideB) * 1000;
-		drawShapeMain.myFinch.setWheelVelocities(drawSpeed, drawSpeed, (int)timeToDraw + 1000);
-		drawShapeMain.myFinch.setWheelVelocities(150, -75, 1000);
+		drawShapeMain.drawShapeFinch.setWheelVelocities(drawSpeed, drawSpeed, (int)timeToDraw + 1000);
+		drawShapeMain.drawShapeFinch.setWheelVelocities(150, -75, 1000);
 		timeToDraw = (multipler * sideC) * 1000;
-		drawShapeMain.myFinch.setWheelVelocities(drawSpeed, drawSpeed, (int)timeToDraw + 1000);
+		drawShapeMain.drawShapeFinch.setWheelVelocities(drawSpeed, drawSpeed, (int)timeToDraw + 1000);
 	}
 
 	// Overriding the Shape method

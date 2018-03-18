@@ -45,6 +45,7 @@ public class Main {
 		case "zigzag":
 			System.out.println("Zig Zag");
 			Finch_ZigZag finchFour = new Finch_ZigZag();
+			finchFour.main();
 			break;
 		}
 

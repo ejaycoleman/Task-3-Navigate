@@ -10,7 +10,7 @@ public class drawShapeMain {
 	};
 
 	static Scanner scan = new Scanner(System.in);;
-	public static Finch myFinch = new Finch();
+	public static Finch drawShapeFinch = new Finch();
 
 	//public static void main(String[] args) throws ShapeException {
 	public void start() throws ShapeException {
@@ -27,7 +27,7 @@ public class drawShapeMain {
 						int[] measurements = Shape.GetMeasurements();
 						Rectangle myRect = new Rectangle(measurements[0], measurements[1]);
 						myRect.draw();
-						myFinch.buzz(500, 2000);
+						drawShapeFinch.buzz(500, 2000);
 						Rectangle.shapesDrawn.add(String.valueOf(measurements[0]) + ";" + String.valueOf(measurements[1]));
 					} catch (ShapeException e) {
 						System.out.println(e);
@@ -39,7 +39,7 @@ public class drawShapeMain {
 						int[] measurements = Triangle.GetMeasurements();
 						Triangle myTri = new Triangle(measurements[0], measurements[1], measurements[2]);
 						myTri.draw();
-						myFinch.buzz(500, 2000);
+						drawShapeFinch.buzz(500, 2000);
 						Triangle.shapesDrawn.add(String.valueOf(measurements[0]) + ";" + String.valueOf(measurements[1]) + ";" + String.valueOf(measurements[2]));
 					} catch (ShapeException e) {
 						System.out.println(e);
@@ -47,8 +47,8 @@ public class drawShapeMain {
 					break;
 
 				case "Q":
-					myFinch.buzz(500, 2000);
-					myFinch.buzz(500, 2000);
+					drawShapeFinch.buzz(500, 2000);
+					drawShapeFinch.buzz(500, 2000);
 					parseShapesDrawn();
 					System.exit(0);
 				}

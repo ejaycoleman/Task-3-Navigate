@@ -9,15 +9,15 @@ import edu.cmu.ri.createlab.terk.robot.finch.Finch;
 public class Controller {
 	public Controller() {
 		this.setUpFinch();
-		this.finchInstance.setLED(0, 255, 0);
+		this.navigateFinch.setLED(0, 255, 0);
 	}
 
 
-	private Finch finchInstance;
+	private Finch navigateFinch;
 	private ArrayList<String> stack;
 
 	private void setUpFinch() {
-		this.finchInstance = new Finch();
+		this.navigateFinch = new Finch();
 	}
 
 	public void start() {
@@ -150,21 +150,21 @@ public class Controller {
 	}
 
 	private void forward(int time, int speed) {
-		finchInstance.setWheelVelocities(speed, speed, time*1000);
+		navigateFinch.setWheelVelocities(speed, speed, time*1000);
 	}
 
 	private void backward(int time, int speed) {
-		finchInstance.setWheelVelocities(-speed, -speed, time*1000);
+		navigateFinch.setWheelVelocities(-speed, -speed, time*1000);
 	}
 
 	private void rightTurn(int time, int speed) {
-		finchInstance.setWheelVelocities(150, 0, 1000);
-		finchInstance.setWheelVelocities(speed, speed, time*1000);
+		navigateFinch.setWheelVelocities(150, 0, 1000);
+		navigateFinch.setWheelVelocities(speed, speed, time*1000);
 	}
 
 	private void leftTurn(int time, int speed) {
-		finchInstance.setWheelVelocities(0, 150, 1000);
-		finchInstance.setWheelVelocities(speed, speed, time*1000);
+		navigateFinch.setWheelVelocities(0, 150, 1000);
+		navigateFinch.setWheelVelocities(speed, speed, time*1000);
 	}
 
 	private boolean callTwoParameter(String[] inputArray, String inputString) {
@@ -195,7 +195,7 @@ public class Controller {
 
 	private void quit() {
 		System.out.println("quiting...");
-		finchInstance.quit();
+		navigateFinch.quit();
 		System.exit(0);
 	}
 }

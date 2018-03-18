@@ -20,14 +20,14 @@ public class ui extends followLight {
 			System.out.println("Average speed = " +stats.avgSpeed );
 			System.out.println("Stop time = "+stats.stopTimer+ " seconds");
 			input.close(); // closes the scanner so the user can not input anything else
-			myFinch.quit(); // this terminates the finch, stopping it from doing anything else
+			followLightFinch.quit(); // this terminates the finch, stopping it from doing anything else
 
 		}
 		else
 		{
 			System.out.println("shutting down");
 			input.close();	
-			myFinch.quit();
+			followLightFinch.quit();
 		}
 
 	}
