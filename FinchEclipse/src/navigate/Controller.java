@@ -55,7 +55,8 @@ public class Controller {
 				break;
 			case "Q":
 				quit();
-				break;
+				return;
+				//break;
 			default: 
 				System.out.println("unknown input!");
 				break;
@@ -196,6 +197,6 @@ public class Controller {
 	private void quit() {
 		System.out.println("quiting...");
 		navigateFinch.quit();
-		System.exit(0);
+		//System.exit(0);
 	}
 }

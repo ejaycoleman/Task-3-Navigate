@@ -50,7 +50,15 @@ public class drawShapeMain {
 					drawShapeFinch.buzz(500, 2000);
 					drawShapeFinch.buzz(500, 2000);
 					parseShapesDrawn();
-					System.exit(0);
+					
+					
+					scan.close();
+					drawShapeFinch.quit();
+					
+					
+					//System.exit(0);
+					
+					return;
 				}
 			}
 		}
@@ -84,6 +92,8 @@ public class drawShapeMain {
 		System.out.println();
 
 		calculateMostFrequent(rectangleDrawnCount, triangleDrawnCount);
+		
+		
 	}
 
 	static void calculateMostFrequent(int rectCount, int triCount) {
@@ -92,7 +102,7 @@ public class drawShapeMain {
 		} else if (triCount > rectCount) {
 			System.out.println("Triangle was drawn more frequently.");
 		} else {
-			System.out.println("Rectangle and Triangle have the same frequency drawn.");
+			System.out.println("");
 		}
 	}
 
