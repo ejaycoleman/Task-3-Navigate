@@ -6,6 +6,7 @@ import followLightTask.*;
 import javax.swing.JOptionPane;
 import drawShape.*;
 import zigzag.*;
+import dance.*;
 //import followLightTask.*;
 
 public class Main {
@@ -51,6 +52,11 @@ public class Main {
 				Finch_ZigZag finchFour = new Finch_ZigZag();
 				finchFour.main();
 				break;
+			case "dance:":
+				DanceMain finchFive = new DanceMain();
+				DanceMain.start();
+				break; 
+				
 			default: 
 				System.out.println("unknown input!");
 				break;
