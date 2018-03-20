@@ -52,7 +52,7 @@ public class Main {
 				Finch_ZigZag finchFour = new Finch_ZigZag();
 				finchFour.main();
 				break;
-			case "dance:":
+			case "dance":
 				DanceMain finchFive = new DanceMain();
 				DanceMain.start();
 				break; 
@@ -77,6 +77,6 @@ public class Main {
 	}
 	
 	private static String getUserInput() {
-		return JOptionPane.showInputDialog("drawShape, followLight, navigate, zigzag");
+		return JOptionPane.showInputDialog("drawShape, followLight, navigate, zigzag, dance");
 	}
 }
